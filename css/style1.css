@@ -1,0 +1,600 @@
+/* ============================================================
+   THEME — change colors & fonts here, applies site-wide
+   ============================================================ */
+:root {
+    --gold-btn:    #E1A801;  /* buttons */
+    --bg-main:     #FFF8E2;  /* main page background (cream) */
+    --bg-section:  #FFEEAC;  /* some section backgrounds (light yellow) */
+    --green:       #4F6817;  /* waves / illustrations / footer */
+    --gold-accent: #F4C84D;  /* card + image-blob backgrounds */
+
+    --text-dark:   #2b2615;  /* headings on light bg */
+    --text-body:   #3f3a28;  /* body copy */
+    --card-text:   #4a3f12;  /* text on gold cards */
+    --on-green:    #fdfaee;  /* text on green footer */
+
+    --font-h1: "Playfair Display", serif;
+    --font-h2: "Domine", serif;
+    --font-body: "Nunito Sans", sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-main);
+    color: var(--text-body);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1 { font-family: var(--font-h1); color: var(--text-dark); font-weight: 700; }
+h2, h3 { font-family: var(--font-h2); color: var(--text-dark); }
+p { margin: 0 0 1rem; }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+    display: inline-block;
+    background: var(--gold-btn);
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 700;
+    padding: 0.7rem 1.6rem;
+    border-radius: 10px;
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 10px rgba(79, 104, 23, 0.18);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+.btn:hover {
+    filter: brightness(1.07);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 16px rgba(79, 104, 23, 0.28);
+}
+.btn-book-tid { padding: 0.55rem 1.4rem; }
+.btn-lg { font-size: 1.15rem; padding: 0.85rem 2rem; }
+
+/* ============================================================
+   HEADER / NAV
+   ============================================================ */
+.site-header {
+    position: absolute;
+    /* Precise floating dimensions requested */
+    top: 2%;
+    left: 5%;
+    right: 5%;
+    z-index: 20;
+
+    /* Green glass styles */
+    background: #4a533ac0;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    /* Rounded corners & styling border */
+    border-radius: 50px; /* High value creates a perfect capsule shape */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    overflow: hidden; /* Ensures the glass effect stays within the rounded corners */
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem 2rem; /* Generous side padding inside the capsule */
+}
+
+/* Brand styling keeps logo & name tightly paired */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between logo box and typography text */
+}
+
+.logo-placeholder {
+    width: 50px; /* Slightly scaled down to fit nicely inside a capsule bar */
+    height: 42px;
+    background: #d9d9d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    color: #555;
+    border-radius: 25px; /* Rounds the logo placeholder itself */
+}
+
+.wordmark {
+    font-family: var(--font-h1);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+/* Pushes the links box and the action button all the way to the right side */
+.main-nav {
+    display: flex;
+    gap: 0.4rem;
+    margin-left: auto; /* The magic link pushing mechanism */
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 20px;
+    transition: background 0.15s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-book-tid {
+    padding: 0.55rem 1.4rem;
+    margin-left: 1rem; /* Creates separation between last link and button */
+    border-radius: 20px; /* Matches the rounded vibe of the capsule */
+}
+
+/* Hide the burger icon on desktop monitors */
+.burger-menu {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .header-inner {
+        gap: 0.8rem; /* Tightens space to fit mobile displays */
+        padding: 0.6rem 1rem;
+    }
+
+    .wordmark {
+        font-size: 0.95rem; /* Shrinks the text size so everything fits */
+        white-space: normal; /* Allows text to wrap neatly if on a very small phone */
+    }
+
+    /* CRUCIAL: Pushes this button AND the burger menu together to the right edge */
+    .btn-book-tid {
+        margin-left: auto;
+        padding: 0.45rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    /* Reveal and style the 3-line Hamburger Box */
+    .burger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 26px;
+        height: 18px;
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        z-index: 30;
+    }
+
+    /* The three individual lines inside the burger button */
+    .burger-menu span {
+        width: 100%;
+        height: 3px;
+        background-color: var(--text-dark);
+        border-radius: 2px;
+        transition: all 0.25s ease-in-out;
+    }
+
+    /* Convert standard navigation links into a clean slide-down menu drawer */
+    .main-nav {
+        position: absolute;
+        top: 100%; /* Spawns directly underneath the header bar */
+        left: 0;
+        right: 0;
+        background: var(--bg-main);
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        margin-left: 0; /* Clears out desktop margin-left configuration */
+
+        /* Hidden states by default */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    }
+
+    /* Mobile drop-down link aesthetics */
+    .main-nav a {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+        border-radius: 0;
+    }
+    .main-nav a:hover {
+        background: rgba(0, 0, 0, 0.03);
+    }
+
+    /* Trigger state: Displays mobile menu drawer when active */
+    .main-nav.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    /* Smoothly animates the 3 horizontal lines into an 'X' close button when clicked */
+    .burger-menu.open span:nth-child(1) {
+        transform: translateY(7.5px) rotate(45deg);
+    }
+    .burger-menu.open span:nth-child(2) {
+        opacity: 0; /* Blinds out middle line */
+    }
+    .burger-menu.open span:nth-child(3) {
+        transform: translateY(-7.5px) rotate(-45deg);
+    }
+}
+
+/* ============================================================
+   HERO (Horizontal/Diagonal Refactor)
+   ============================================================ */
+.hero {
+    position: relative;
+    background: var(--bg-main);
+    min-height: 780px; /* Increased height to give the horizontal layout breathing room */
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end; /* Keeps content anchored toward the bottom layout */
+}
+
+/* 1. Photo extends full width across the top background layer */
+.hero-media {
+    position: absolute;
+    width: 100%;
+    height: 75%; /* Fills the upper portion of the screen behind the header */
+    z-index: 1;
+}
+.hero-media .photo-placeholder {
+    height: 100%;
+    width: 100%;
+}
+
+/* 2. SVG sits over the photo and covers the bottom of the screen */
+.hero-wave-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Spans full height to perfectly map our 1440x720 curve points */
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* 3. Text content is pushed down to rest strictly within the bottom-left beige zone */
+.hero-content {
+    position: relative;
+    z-index: 3; /* Sits cleanly on top of the SVG background layers */
+    max-width: var(--maxw);
+    margin: 0 auto;
+    width: 100%;
+    /* Large top padding ensures text clears the high part of the wave on the left */
+    padding: 26rem 1.5rem 5rem;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.hero-content h1 {
+    font-size: 3.2rem;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+
+    /* CRUCIAL FIXES FOR A SINGLE LINE: */
+    white-space: nowrap; /* Forces the text to absolutely stay on 1 line */
+    max-width: none;     /* Clears out any restrictions on length */
+}
+
+.hero-content p {
+    max-width: 42ch;
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Ensure buttons have the slight rounded look from your mockup */
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 6px; /* Smooth rounded corners matching image 2 */
+    font-weight: 700;
+    transition: transform 0.2s ease;
+}
+.btn:active {
+    transform: scale(0.98);
+}
+/* ============================================================
+   SHARED — photo placeholders & blobs
+   ============================================================ */
+.hero-img {
+    width: 110%; height: 110%;
+    min-height: 260px;
+    display: flex; align-items: center; justify-content: center;
+    color: #4a533a;
+    font-weight: 700;
+    text-align: center;
+}
+
+.blob {
+    border-radius: 58% 42% 47% 53% / 55% 47% 53% 45%;
+    overflow: hidden;
+}
+.blob-outline {
+    box-shadow: 0 0 0 8px var(--gold-accent);
+}
+
+/* full-width wave dividers */
+.wave {
+    position: absolute;
+    left: 0; width: 100%;
+    display: block;
+    pointer-events: none;
+}
+.wave-top-green { top: -1px; height: 90px; }
+.wave-bottom-green { bottom: -1px; height: 100px; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+    position: relative;
+    background: var(--bg-main);
+    min-height: 640px;
+    overflow: hidden;
+}
+.hero-media {
+    position: absolute;
+    top: 0; right: 0;
+}
+.hero-media .hero-img { height: 120%; }
+.hero-curve {
+    position: absolute;
+    top: 0; right: 0;
+    width: 20%; height: 100%;
+    z-index: 2;
+}
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 5rem 2rem 0rem;
+}
+.hero-content h1 {
+    font-size: 3rem;
+    margin: 0 0 1.4rem;
+    max-width: 9ch;
+}
+.hero-content p { max-width: 40ch; }
+.hero-content .btn { margin-top: 1rem; }
+
+/* ============================================================
+   FEATURE CARDS
+   ============================================================ */
+.features {
+    background: var(--bg-main);
+    padding: 1rem 1.5rem 4.5rem;
+}
+.features-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+.feature-card {
+    background: var(--gold-accent);
+    border-radius: 14px;
+    padding: 2rem 1.8rem 2.2rem;
+    text-align: center;
+    color: var(--card-text);
+    box-shadow: 0 6px 18px rgba(79, 104, 23, 0.12);
+}
+.feature-icon { color: var(--card-text); height: 70px; margin-bottom: 0.5rem; }
+.feature-icon svg { height: 64px; width: 64px; }
+.feature-card h2 { font-size: 1.45rem; margin: 0.2rem 0 0.9rem; color: var(--card-text); }
+.feature-card p { font-size: 0.94rem; font-weight: 600; margin: 0; }
+
+/* ============================================================
+   MØD PSYKOLOGEN
+   ============================================================ */
+.about {
+    position: relative;
+    background: var(--bg-section);
+    padding: 7rem 1.5rem;
+}
+.about-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+.about-text h1 { font-size: 2.4rem; margin: 0 0 1.5rem; }
+.about-text p { max-width: 46ch; }
+.about-text .btn { margin-top: 0.5rem; }
+.about-photo { display: flex; justify-content: center; }
+.about-photo .photo-placeholder { width: 360px; height: 360px; min-height: 0; border-radius: 50%; }
+
+/* ============================================================
+   BEHANDLINGSFORLØB
+   ============================================================ */
+.process {
+    position: relative;
+    background: var(--bg-main);
+    padding: 8rem 1.5rem;
+}
+.process-inner { max-width: var(--maxw); margin: 0 auto; text-align: center; }
+.section-title { font-size: 2.6rem; margin: 0 0 3rem; }
+.steps {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.step-card {
+    flex: 1 1 260px;
+    max-width: 300px;
+    background: var(--bg-section);
+    border-radius: 12px;
+    padding: 1.4rem 1.5rem 1.6rem;
+    text-align: left;
+    box-shadow: 0 5px 14px rgba(79, 104, 23, 0.1);
+}
+.step-head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.7rem; }
+.step-num {
+    flex-shrink: 0;
+    width: 34px; height: 34px;
+    background: var(--green);
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-h2);
+    font-weight: 700;
+}
+.step-card h2 { font-size: 1.15rem; margin: 0; }
+.step-card p { font-size: 0.86rem; margin: 0; }
+.step-arrow { display: flex; align-items: center; }
+.step-arrow svg { width: 52px; }
+.process-inner .btn { margin-top: 2.5rem; }
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+/* TESTIMONIALS
+   ============================================================ */
+.testimonials {
+    position: relative;
+    background: var(--bg-section);
+    /* Reduced horizontal padding from 1.5rem to 1rem to utilize screen edges */
+    padding: 7rem 1rem 5rem;
+}
+
+.testimonials-inner {
+    /* Force a wider layout if var(--maxw) is too restrictive */
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.testimonials .section-title {
+    margin-bottom: 2.5rem;
+}
+
+.testimonial-row {
+    display: flex;
+    justify-content: center;
+    /* Reduced gap slightly from 2.5rem to 1.5rem to save horizontal space */
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.anmeldese-kort {
+    position: relative; /* CRUCIAL: Contains the absolute SVG background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically centers the text content */
+    align-items: center;     /* Horizontally centers the text content */
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+
+    /* Matches the exact aspect ratio of your SVG viewBox (384x284) */
+    width: 100%;
+    max-width: 384px;
+    aspect-ratio: 384 / 284;
+
+    /* Padding keeps text safely away from the wavy blob edges */
+    padding: 2.5rem;
+    box-sizing: border-box;
+}
+
+/* Forces the SVG to behave exactly like a background graphic */
+.anmeldese-kort .testimonial.illustration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;          /* Pushes the yellow shape behind your text */
+    pointer-events: none; /* Ensures users can still easily highlight the text */
+}
+
+/* Optional tweaks to make your text layout look balanced inside the blob */
+.anmeldese-kort h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.anmeldese-kort p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+/* ============================================================
+   CTA / SNAK
+   ============================================================ */
+.cta {
+    position: relative;
+    background: var(--bg-main);
+    padding: 9rem 1.5rem;
+}
+.cta-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+.cta-text { order: 1; }
+.cta-text p { max-width: 44ch; }
+.cta-text .btn { margin-top: 1rem; }
+.cta-media { order: 2; position: relative; }
+.cta-title { font-size: 2.2rem; margin: 0 0 1.5rem; text-align: right; }
+.cta-media .photo-placeholder { width: 100%; height: 320px; min-height: 0; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+    position: relative;
+    background: var(--green);
+    color: var(--on-green);
+    padding: 8rem 1.5rem 1rem;
+}
+.footer-wave { position: absolute; top: -1px; left: 0; width: 100%; height: 120px; }
+.footer-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.footer-line { margin: 0 0 1.2rem; font-size: 1.25rem; }
+.footer-col-right { display: flex; flex-direction: column; gap: 1.2rem; justify-content: flex-end; padding-bottom: 2.4rem; }
+.footer-link { color: var(--on-green); text-decoration: none; font-size: 1.35rem; }
+.footer-link:hover { text-decoration: underline; }
+.footer-copy { text-align: center; margin: 1.5rem 0 0; font-size: 1.15rem; }
+
+/* light, free responsive safety net (full mobile pass comes later) */
+@media (max-width: 860px) {
+    .features-inner { grid-template-columns: 1fr; }
+    .about-inner, .cta-inner { grid-template-columns: 1fr; }
+    .hero-media, .hero-curve { width: 100%; opacity: 0.25; }
+    .cta-title { text-align: left; }
+}
