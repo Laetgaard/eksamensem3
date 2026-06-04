@@ -1,0 +1,589 @@
+/* ============================================================
+THEME VARIABLES
+============================================================ */
+:root {
+    --gold-btn: #E1A801;      /* buttons */
+    --bg-main: #FFF8E2;       /* main page background (cream) */
+    --bg-section: #FFEEAC;    /* some section backgrounds (light yellow) */
+    --green: #4F6817;         /* waves / illustrations / footer */
+    --gold-accent: #F4C84D;   /* card + image-blob backgrounds */
+    --bg-about: #FDF4CD;      /* about section warm yellow background */
+
+    --text-dark: #2b2615;     /* headings on light bg */
+    --text-body: #3f3a28;     /* body copy */
+    --card-text: #4a3f12;     /* text on gold cards */
+    --on-green: #fdfaee;      /* text on green background */
+
+    --font-h1: "Playfair Display", serif;
+    --font-h2: "Domine", serif;
+    --font-body: "Nunito Sans", sans-serif;
+    --maxw: 1200px;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-main);
+    color: var(--text-body);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+h1 { font-family: var(--font-h1); color: #ffffff; font-weight: 700; }
+h2, h3 { font-family: var(--font-h2); color: var(--text-dark); }
+p { margin: 0 0 1rem; }
+
+/* ============================================================
+BUTTONS
+============================================================ */
+.btn {
+    display: inline-block;
+    background: var(--gold-btn);
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 700;
+    padding: 0.7rem 1.6rem;
+    border-radius: 10px;
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 10px rgba(79, 104, 23, 0.18);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    border: none;
+    cursor: pointer;
+}
+.btn:hover {
+    filter: brightness(1.07);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 16px rgba(79, 104, 23, 0.28);
+}
+.btn:active { transform: scale(0.98); }
+.btn-book-tid { padding: 0.55rem 1.4rem; }
+
+/* ============================================================
+HEADER & NAVIGATION ARCHITECTURE
+============================================================ */
+.site-header {
+    position: absolute;
+    top: 2%;
+    left: 5%;
+    right: 5%;
+    z-index: 20;
+    background: #4a533ac0;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.header-inner {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem 2rem;
+}
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.logo-placeholder {
+    width: 50px;
+    height: 42px;
+    background: #d9d9d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    color: #555;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+.wordmark {
+    font-family: var(--font-h1);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+.main-nav {
+    display: flex;
+    gap: 0.4rem;
+    margin-left: auto;
+    align-items: center;
+}
+.main-nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 20px;
+    transition: background 0.15s ease;
+}
+.main-nav a:hover, .main-nav a.active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-nav-desktop { margin-left: 1rem; border-radius: 20px; }
+.btn-nav-mobile { display: none; }
+.burger-menu { display: none; z-index: 30; }
+
+/* ============================================================
+HERO SECTION
+============================================================ */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    padding: 40px 24px 230px 24px;
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
+    height: 120vh;
+}
+.hero-content {
+    position: relative;
+    z-index: 5;
+    max-width: 850px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+}
+.hero h1 {
+    font-family: var(--font-h1);
+    font-size: 3.2rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 12px rgba(0,0,0,0.6);
+    line-height: 1.25;
+    text-align: center;
+}
+.hero p {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    color: #ffffff;
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+    text-align: center;
+}
+.hero-wave {
+    position: absolute;
+    bottom: -55px;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    z-index: 10;
+}
+.wave-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================================
+WAVES & SECTIONS GENERAL
+============================================================ */
+.wave-container {
+    width: 100%;
+    line-height: 0;
+    margin: 0;
+}
+.margin-minus {
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+section {
+    padding: 60px 24px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+.section-title {
+    font-family: var(--font-h1);
+    font-size: 2.6rem;
+    margin-bottom: 25px;
+}
+.section-text {
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+}
+.blob-img {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+.cream-section {
+    background: var(--bg-main);
+}
+
+/* ============================================================
+   SEKTION 1: Mød Psykologen (Desktop Layout)
+   ============================================================ */
+.about {
+    background: var(--bg-main);
+    padding: 6rem 24px;
+}
+
+.about-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Venstre side er lidt bredere end højre */
+    grid-template-areas:
+        "title photo"
+        "text photo";
+    gap: 20px 60px; /* 20px mellem titel/tekst, 60px mellem tekst/billede */
+    align-items: center; /* Centrerer billedet lodret i forhold til teksten */
+}
+
+.about-title {
+    grid-area: title;
+    font-size: 2.6rem;
+    margin: 0;
+    text-align: left;
+}
+
+.about-text {
+    grid-area: text;
+    text-align: left;
+}
+
+.about-photo {
+    grid-area: photo;
+    display: flex;
+    justify-content: center;
+}
+
+.about-photo .blob-img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    object-fit: cover;
+}
+@media (max-width: 768px) {
+    /* ... dine andre mobil-styles ... */
+
+    /* 📲 MØD PSYKOLOGEN PÅ MOBIL */
+    .about-inner {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
+    .about-title {
+        text-align: center !important; /* Valgfrit: Centreret titel ser ofte bedst ud på mobil */
+        width: 100%;
+    }
+
+    .about-photo {
+        width: 100% !important;
+        margin: 10px 0 !important;
+    }
+
+    .about-photo .blob-img {
+        max-width: 100% !important; /* Billedet tilpasser sig mobilskærmens bredde */
+        width: 100%;
+    }
+
+    .about-text {
+        text-align: left !important;
+        width: 100%;
+    }
+}
+/* ============================================================
+   SEKTION 2: Velkommen i rolige rammer (Desktop)
+   ============================================================ */
+.behandling-grid {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+.behandling-text-1 {
+    text-align: left;
+}
+
+/* ============================================================
+   SEKTION 3: Andres egne oplevelser (Desktop)
+   ============================================================ */
+.experiences-section {
+    max-width: 100%;
+}
+.experiences-main-title {
+    font-family: var(--font-h1);
+    font-size: 2.6rem;
+    text-align: center;
+    margin-bottom: 50px;
+    width: 100%;
+}
+.experience-row {
+    max-width: var(--maxw);
+    margin: 0 auto 60px auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-areas:
+        "subtitle image"
+        "text image";
+    gap: 15px 60px;
+    align-items: start;
+}
+.experience-row:last-of-type {
+    margin-bottom: 0;
+}
+.exp-subtitle {
+    grid-area: subtitle;
+    font-family: var(--font-h2);
+    font-size: 1.8rem;
+    margin: 0;
+    text-align: left;
+}
+.exp-text {
+    grid-area: text;
+    text-align: left;
+}
+.exp-image {
+    grid-area: image;
+}
+.exp-image img {
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    display: block;
+    margin: 0 auto;
+}
+
+/* ============================================================
+   SEKTION 4: Skal vi tage en uforpligtende samtale (Desktop)
+   ============================================================ */
+.cta {
+    background: var(--bg-main);
+    padding: 6rem 24px;
+}
+.cta-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    grid-template-areas:
+        "title media"
+        "text media"
+        "button media";
+    gap: 20px 60px;
+    align-items: center;
+}
+.cta-title {
+    grid-area: title;
+    font-size: 2.4rem;
+    margin: 0;
+    text-align: left;
+}
+.cta-text {
+    grid-area: text;
+    text-align: left;
+}
+.cta-text p {
+    max-width: 50ch;
+}
+.cta-button {
+    grid-area: button;
+    text-align: left;
+}
+.cta-media {
+    grid-area: media;
+}
+.cta-img {
+    width: 100%;
+    max-width: 460px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ============================================================
+   FOOTER & DESIGN REFINEMENTS
+   ============================================================ */
+footer {
+    background: var(--green);
+    color: var(--on-green);
+    padding: 4rem 2rem 2rem;
+}
+.footer-grid {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+.footer-hint {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    margin-bottom: 0.5rem;
+}
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    justify-content: center;
+}
+.footer-links a {
+    color: var(--on-green);
+    text-decoration: none;
+    font-weight: 500;
+}
+.footer-links a:hover { text-decoration: underline; }
+.copyright {
+    max-width: var(--maxw);
+    margin: 3rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+/* ============================================================
+📲 MOBIL RESPONSIVE OVERRIDES (max-width: 768px)
+============================================================ */
+@media (max-width: 768px) {
+    section {
+        padding: 50px 16px !important;
+    }
+
+    .site-header { left: 4%; right: 4%; top: 15px; border-radius: 20px; }
+    .header-inner { padding: 0.5rem 1.2rem; justify-content: space-between; }
+    .wordmark { font-size: 0.85rem; }
+    .btn-nav-desktop { display: none !important; }
+
+    /* Burger Menu */
+    .burger-menu {
+        display: flex; flex-direction: column; justify-content: space-between;
+        width: 26px; height: 18px; background: none; border: none; padding: 0; cursor: pointer;
+    }
+    .burger-menu span { width: 100%; height: 2.5px; background-color: #ffffff; border-radius: 4px; }
+
+    .main-nav {
+        position: absolute; top: 120%; left: 0; right: 0; background: var(--bg-main);
+        flex-direction: column; gap: 0; padding: 1rem 0; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        border-radius: 20px; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.25s ease;
+    }
+    .main-nav.active { opacity: 1; visibility: visible; transform: translateY(0); }
+    .main-nav a { width: 100%; text-align: center; padding: 0.9rem 0; color: var(--text-dark); }
+    .main-nav .btn-nav-mobile {
+        display: inline-block; width: auto; min-width: 160px; margin: 1rem auto 0.5rem;
+        padding: 0.6rem 1.8rem; background: var(--gold-btn); color: #ffffff !important; border-radius: 30px;
+    }
+
+    .hero { min-height: 65vh !important; padding: 50px 20px 130px 20px !important; height: 50vh; }
+    .hero h1 { font-size: 2.2rem !important; }
+    .hero p { font-size: 1.05rem !important; }
+    .hero-wave { bottom: -5px !important; }
+
+    /* 📲 SEKTION 1 MOBIL (Title -> Image -> Text) */
+    .about-inner {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+    .about-title {
+        text-align: center !important;
+        width: 100%;
+    }
+    .about-photo {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    /* 📲 SEKTION 2 MOBIL (Image fits width perfectly) */
+    .behandling-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 25px !important;
+    }
+    .behandling-image {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .behandling-image .blob-img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto;
+    }
+
+    /* 📲 SEKTION 3 MOBIL (Title -> Subtitle -> Image -> Text...) */
+    .experiences-main-title {
+        font-size: 2.1rem !important;
+        margin-bottom: 35px !important;
+    }
+    .experience-row {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+        margin-bottom: 45px !important;
+    }
+    .exp-subtitle {
+        text-align: left !important;
+        font-size: 1.5rem !important;
+    }
+    .exp-image {
+        width: 100% !important;
+    }
+    .exp-image img {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    /* 📲 SEKTION 4 MOBIL (Title -> Image -> Text -> Button) */
+    .cta-inner {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+    .cta-title {
+        text-align: center !important;
+        font-size: 2rem !important;
+        width: 100%;
+    }
+    .cta-media {
+        width: 100% !important;
+        margin-bottom: 10px;
+    }
+    .cta-img {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    .cta-text {
+        text-align: left !important;
+    }
+    .cta-button {
+        width: 100%;
+        text-align: center !important;
+    }
+    .cta-button .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Footer Mobil */
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-links { align-items: flex-start; }
+}
