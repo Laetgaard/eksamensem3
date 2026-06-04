@@ -1,9 +1,14 @@
+document.addEventListener('DOMContentLoaded', () => {
     const burgerBtn = document.getElementById('burgerBtn');
-    const mainNav = document.getElementById('mainNav');
+    const mainNav = document.querySelector('.main-nav');
 
-    burgerBtn.addEventListener('click', () => {
-    // Toggles the 'X' morph animation on the button
-    burgerBtn.classList.toggle('open');
-    // Toggles the slide-down view utility on the menu links block
-    mainNav.classList.toggle('active');
+    if (burgerBtn && mainNav) {
+        burgerBtn.addEventListener('click', () => {
+            // Toggles the "X" animation on the button
+            burgerBtn.classList.toggle('open');
+
+            // Slides the menu drawer down
+            mainNav.classList.toggle('active');
+        });
+    }
 });

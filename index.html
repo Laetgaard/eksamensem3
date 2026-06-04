@@ -7,25 +7,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Domine:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/style1.css" />
+    <link rel="stylesheet" href="css/styletest.css" />
 </head>
 <body>
 
 <header class="site-header">
     <div class="header-inner">
-
         <div class="brand">
             <div class="logo-placeholder">logo</div>
             <span class="wordmark">PSYKOLOG AMALIE VEBER</span>
         </div>
 
-        <nav class="main-nav">
-            <a href="#" class="active">Forside</a>
+        <nav class="main-nav" id="mainNav">
+            <a href="index.html" class="active">Forside</a>
             <a href="#">Samtaleterapi</a>
+            <a href="moedregrupper.html">Mødregrupper</a>
             <a href="#">Priser</a>
             <a href="#">Om klinikken</a>
+            <a href="#" class="btn-nav-mobile">BOOK TID</a>
         </nav>
-        <a href="#" class="btn btn-gold btn-book-tid">BOOK TID</a>
+
+        <a href="#" class="btn btn-gold btn-book-tid btn-nav-desktop">BOOK TID</a>
 
         <button class="burger-menu" id="burgerBtn" aria-label="Toggle navigation">
             <span></span>
@@ -35,11 +37,9 @@
     </div>
 </header>
 
-<!-- ============ HERO ============ -->
 <section class="hero">
-
     <div class="hero-media">
-       <img src="images/billede3%20(1).jpeg" alt="Foto af psykologens klinik og venteværelse" class="hero-img" />
+        <img src="images/billede3%20(1).jpeg" alt="Foto af psykologens klinik og venteværelse" class="hero-img" />
     </div>
 
     <svg class="hero-wave-divider" viewBox="0 0 1440 720" preserveAspectRatio="none" aria-hidden="true">
@@ -50,24 +50,46 @@
     <div class="hero-content">
         <h1>Psykolog centralt i Roskilde</h1>
         <p>Hos mig er du velkommen, som du er. Med varme og empati skaber jeg et trygt rum, hvor vi sammen løser dine udfordringer.</p>
-        <p>Start med en gratis og uforpligtende forsamtale, og mærk om jeg er den rette til at hjælpe dig</p>
+        <p>Start med en gratis og uforpligtende forsamtale, og mærk om jeg er den rette til at hjælpe dig.</p>
         <a href="#" class="btn btn-gold">BOOK FORSAMTALE</a>
     </div>
-
 </section>
 
-<!-- ============ FEATURE CARDS ============ -->
+<!-- BØLGE 2 (Erstatning for curvetree2.svg med grøn top-udfyldning) -->
+<div class="wave-container margin-minus">
+    <svg width="1280" height="492" viewBox="0 0 1280 492" fill="none" xmlns="http://www.w3.org/2000/svg" class="wave-svg">
+        <mask id="mask_wave_2" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1280" height="492">
+            <rect width="1280" height="492" fill="#D9D9D9"/>
+        </mask>
+        <g mask="url(#mask_wave_2)">
+            <!-- Udfylder toppen med grøn, så overgangen fra den grønne sektion er 100% tæt -->
+            <path d="M-116.76 338.7C-93.7215 209.915 217.557 124.252 526.051 128.055C938.6 171.821 1305.78 116.979 1351 -43L1400 -60L-200 -60Z" fill="#FFF8E2;"/>
+            <path d="M-116.76 338.7C-93.7215 209.915 217.557 124.252 526.051 128.055C938.6 171.821 1305.78 116.979 1351 -43V207.919C1256.42 297.213 1094.95 325.28 783.13 276.706C325.231 204.801 -43.6919 457.225 -154 494.5C-154 494.5 -139.799 467.486 -116.76 338.7Z" fill="#4F6817"/>
+        </g>
+    </svg>
+</div>
+
 <section class="features">
     <div class="features-inner">
-
         <article class="feature-card">
             <div class="feature-icon">
-                <!-- calendar -->
-                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <rect x="8" y="14" width="48" height="42" rx="4"/>
-                    <path d="M8 26h48"/>
-                    <path d="M20 8v12M44 8v12"/>
-                    <path d="M18 36h6M29 36h6M40 36h6M18 46h6M29 46h6M40 46h6"/>
+                <svg width="102" height="82" viewBox="0 0 102 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M41.2637 17.3936H62.7207C64.2714 17.3936 65.7161 18.2919 68.1592 19.9444C70.2343 21.348 73.3121 23.5112 77.1328 23.2813C79.1007 23.1627 80.6848 21.9697 81.8828 20.8682C84.2469 18.6946 86.8684 17.3937 89.5283 17.3936C94.7593 17.3936 99 21.6343 99 26.8653V67.0001C99 73.6274 93.6274 79.0001 87 79.0001H15C8.3726 79.0001 3.00003 73.6274 3 67.0001V27.2491C3 21.8062 7.4126 17.3936 12.8555 17.3936C14.4509 17.3937 15.9551 17.953 17.6152 18.9883C19.3706 20.0831 20.9282 21.4485 22.957 23.0313C23.9818 23.8308 25.295 24.4121 26.8496 24.2842C28.3068 24.1643 29.5097 23.4541 30.4512 22.6915C34.2816 19.5885 37.5738 17.3936 41.2637 17.3936Z" stroke="#E1A801" stroke-width="6"/>
+                    <path d="M2.5 16.1383C8.63799 16.1383 14.3413 16.1383 19.75 16.1383C25.036 23.9698 30.4165 23.666 36 16.1383C47.3767 16.1383 57.9742 16.1383 69.5 16.1383C74.9113 24.136 80.1364 24.1723 85.25 16.1383C89.9115 16.1383 94.7997 16.1383 100 16.1383V34.4575H2.5V16.1383Z" fill="#E1A801"/>
+                    <rect x="9" y="38.383" width="16.5" height="9.59575" fill="#E1A801"/>
+                    <rect x="9" y="51.9043" width="16.5" height="9.59575" fill="#E1A801"/>
+                    <rect x="9" y="65.4255" width="16.5" height="9.59575" fill="#E1A801"/>
+                    <rect x="31.5" y="38.383" width="16.5" height="9.59575" fill="#E1A801"/>
+                    <rect x="31.5" y="51.9043" width="16.5" height="9.59575" fill="#E1A801"/>
+                    <rect x="31.5" y="65.4255" width="16.5" height="9.59575" fill="#E1A801"/>
+                    <rect x="54" y="38.383" width="16.5" height="9.59575" fill="#E1A801"/>
+                    <rect x="54" y="51.9043" width="16.5" height="9.59575" fill="#E1A801"/>
+                    <rect x="54" y="65.4255" width="16.5" height="9.59575" fill="#E1A801"/>
+                    <rect x="76.5" y="38.383" width="16.5" height="9.59575" fill="#E1A801"/>
+                    <rect x="76.5" y="51.9043" width="16.5" height="9.59575" fill="#E1A801"/>
+                    <rect x="76.5" y="65.4255" width="16.5" height="9.59575" fill="#E1A801"/>
+                    <path d="M21.6384 4.42539C22.1998 2.2446 24.2363 0.872345 26.4882 0.872345C28.9999 0.872345 31.1984 2.57339 31.6329 5.04724C32.3729 9.26101 32.9937 15.3206 30.7578 16.5745C27.2578 18.5372 27.2578 20.9362 22.7578 16.5745C19.8774 13.7826 20.6844 8.13157 21.6384 4.42539Z" fill="#E1A801"/>
+                    <path d="M72.3806 3.55304C72.942 1.37225 74.9785 0 77.2304 0C79.7421 0 81.9406 1.70105 82.375 4.1749C83.1151 8.38866 83.7358 14.4483 81.5 15.7021C78 17.6649 78 20.0638 73.5 15.7021C70.6196 12.9103 71.4266 7.25922 72.3806 3.55304Z" fill="#E1A801"/>
                 </svg>
             </div>
             <h2>Korte Ventider</h2>
@@ -76,12 +98,11 @@
 
         <article class="feature-card">
             <div class="feature-icon">
-                <!-- two people -->
-                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <circle cx="23" cy="22" r="9"/>
-                    <circle cx="43" cy="22" r="9"/>
-                    <path d="M9 52c0-9 6.3-15 14-15s14 6 14 15"/>
-                    <path d="M37 39c2-1.3 4.3-2 7-2 7.7 0 14 6 14 15"/>
+                <svg width="105" height="79" viewBox="0 0 105 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M30.9541 17.5221C40.7786 17.5223 48.9521 25.8588 48.9521 36.4059C48.9521 46.953 40.7787 55.2894 30.9541 55.2896C21.1293 55.2896 12.9551 46.9531 12.9551 36.4059C12.9552 25.8586 21.1294 17.5221 30.9541 17.5221Z" stroke="#E1A801" stroke-width="6"/>
+                    <path d="M30.9531 58.29C44.1771 58.29 55.6367 66.1383 61.2549 77.5966C53.8798 68.4112 43.1356 62.623 31.1699 62.623C18.6044 62.623 7.38415 69.0044 0 79.0019C5.34722 66.7848 17.1953 58.2901 30.9531 58.29Z" fill="#E1A801"/>
+                    <path d="M74.7041 3C84.5286 3.00024 92.7021 11.3367 92.7021 21.8838C92.7021 32.4309 84.5287 40.7673 74.7041 40.7676C64.8793 40.7676 56.7051 32.4311 56.7051 21.8838C56.7052 11.3366 64.8794 3 74.7041 3Z" stroke="#E1A801" stroke-width="6"/>
+                    <path d="M74.7031 43.7679C87.9271 43.7679 99.3867 51.6162 105.005 63.0746C97.6298 53.8891 86.8856 48.1009 74.9199 48.1009C62.3544 48.1009 51.1342 54.4823 43.75 64.4798C49.0972 52.2627 60.9453 43.7681 74.7031 43.7679Z" fill="#E1A801"/>
                 </svg>
             </div>
             <h2>Individuel terapi</h2>
@@ -90,46 +111,45 @@
 
         <article class="feature-card">
             <div class="feature-icon">
-                <!-- ACT squiggle with leaf -->
-                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M14 36c-6-3-7-12-1-15s12 2 11 8-9 7-12 2 1-12 8-12 11 7 8 13"/>
-                    <path d="M40 44c0-9 5-16 16-18-1 11-7 17-16 18z"/>
-                    <path d="M40 44c3-5 7-9 12-12"/>
-                </svg>
+                <img src="images/ACT%20icon.png" alt="Illustration af ACT metoden" style="width: 100px; height: 150px;"/>
             </div>
             <h2>ACT Metoden</h2>
             <p>En praktisk og visuel terapiform med øvelser og brug af whiteboard. Lær at håndtere tankemylder og stress, så du genfinder roen.</p>
         </article>
-
     </div>
 </section>
 
-<!-- ============ MØD PSYKOLOGEN ============ -->
+<svg class="fluid-flow-wave" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M1440,0 C1200,80 900,120 700,60 C500,0 200,40 0,20 L0,140 L1440,140 Z" fill="var(--bg-about)"></path>
+</svg>
+
 <section class="about">
-    <!-- indsæt svg fil -->
     <div class="about-inner">
+        <h1 class="about-title">Mød Psykologen</h1>
+
         <div class="about-text">
-            <h1>Mød Psykologen</h1>
             <p>Mit navn er Amalie, og jeg er autoriseret psykolog med klinik centralt i Roskilde.</p>
-            <p>For mig er det afgørende, at du føler dig mødt med varme, empati og tryghed fra det øjeblik, du træder ind ad døren. Terapi hos mig foregår i øjenhøjde og udgangspunktet er altid din oplevelse af din situation.</p>
+            <p>For mij er det afgørende, at du føler dig mødt med varme, empati og tryghed fra det øjeblik, du træder ind ad døren. Terapi hos mig foregår i øjenhøjde og udgangspunktet er altid din oplevelse af din situation.</p>
             <p>Jeg har særlig erfaring med at hjælpe unge voksne, der kæmper med selvværd og præstationspres, samt forældre, der søger balance og støtte i forældreskabet. I mine samtaler arbejder jeg bredt, men trækker især på metoden ACT.</p>
             <a href="#" class="btn btn-gold">Læs mere</a>
         </div>
+
         <div class="about-photo">
-            <img src="images/"
+            <img src="images/om%20mig.jpg" alt="Portræt af Amalie" class="blob-img">
         </div>
     </div>
-    <svg class="wave wave-bottom-green" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,120 L1440,120 L1440,80 C1080,20 720,110 360,50 C180,20 60,80 0,60 Z" fill="var(--green)"/>
-    </svg>
 </section>
 
-<!-- ============ BEHANDLINGSFORLØB ============ -->
+<svg class="fluid-flow-wave-1" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,0 C300,90 700,20 1100,110 C1280,140 1380,80 1440,40 L1440,140 L0,140 Z" fill="var(--bg-main)"></path>
+    <path d="M0,0 C300,90 700,20 1100,110 C1280,140 1380,80 1440,40" fill="none" stroke="var(--bg-about)" stroke-width="4"></path>
+</svg>
+
 <section class="process">
     <div class="process-inner">
-        <h1 class="section-title">Behandlingsforløb</h1>
-        <div class="steps">
+        <h1 class="section-title-processen">Behandlingsforløb</h1>
 
+        <div class="steps">
             <article class="step-card">
                 <div class="step-head">
                     <span class="step-num">1</span>
@@ -163,98 +183,88 @@
                     <span class="step-num">3</span>
                     <h2>Ro og forandring</h2>
                 </div>
-                <p>Gennem samtalerne finder vi sammen frem til, hvordan du håndterer de svære perioder og tanker. Målet er at skabe en forandring på det indre eller ydre plan, som giver dig en hverdag med mere glæde, overskud og mening i længden.</p>
+                <p>Gennem samtalerne finder vi sammen frem til, hvordan du håndterer de svære perioder og tanker. Målet er at skade en forandring på det indre eller ydre plan, som giver dig en hverdag med mere glæde, overskud og mening i længden.</p>
             </article>
-
         </div>
+
         <a href="#" class="btn btn-gold">Læs mere</a>
     </div>
 </section>
 
-<!-- ============ TESTIMONIALS ============ -->
+<svg class="fluid-flow-wave" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,20 C250,110 600,10 950,90 C1150,130 1320,40 1440,0 L1440,140 L0,140 Z" fill="var(--bg-section)"></path>
+</svg>
+
 <section class="testimonials">
-    <svg class="wave wave-top-green" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,0 L1440,0 L1440,45 C1100,95 700,5 360,65 C180,90 60,40 0,55 Z" fill="var(--green)"/>
-    </svg>
     <div class="testimonials-inner">
         <h1 class="section-title">Andres egne oplevelser</h1>
+
         <div class="testimonial-row">
-
             <article class="anmeldese-kort">
-                <svg class="testimonial illustration" viewBox="0 0 384 284"> <path
-                    d="M81.54 13.2535C253.143 84.7435 229.126 -25.8956 346.777 13.2535C464.239 52.3397 258.131 102.21 346.349 233.052C346.621 233.456 346.909 233.954 347.114 234.395C383.625 313.036 104.059 286.934 81.54 233.684C58.9535 180.275 -90.0633 -58.2366 81.54 13.2535Z"
-                    fill="#F4C84D"
-                />
+                <svg class="testimonial illustration" viewBox="0 0 384 284" preserveAspectRatio="none">
+                    <path d="M81.54 13.2535C253.143 84.7435 229.126 -25.8956 346.777 13.2535C464.239 52.3397 258.131 102.21 346.349 233.052C346.621 233.456 346.909 233.954 347.114 234.395C383.625 313.036 104.059 286.934 81.54 233.684C58.9535 180.275 -90.0633 -58.2366 81.54 13.2535Z" fill="#F4C84D"/>
                 </svg>
-                <h3>TITL</h3>
-                <p>"TEXT TEXT TEXT</p>
-                <div class="testimonial-dots"><span></span><span></span><span></span><span></span><span></span></div>
+                <h3>Oplevelse 1</h3>
+                <p>"Terapien har givet mig fantastiske værktøjer til at håndtere eksamensangst og hverdagsstress."</p>
             </article>
 
             <article class="anmeldese-kort">
-                <svg class="testimonial illustration" viewBox="0 0 384 284"> <path
-                        d="M81.54 13.2535C253.143 84.7435 229.126 -25.8956 346.777 13.2535C464.239 52.3397 258.131 102.21 346.349 233.052C346.621 233.456 346.909 233.954 347.114 234.395C383.625 313.036 104.059 286.934 81.54 233.684C58.9535 180.275 -90.0633 -58.2366 81.54 13.2535Z"
-                        fill="#F4C84D"
-                />
+                <svg class="testimonial illustration" viewBox="0 0 384 284" preserveAspectRatio="none">
+                    <path d="M81.54 13.2535C253.143 84.7435 229.126 -25.8956 346.777 13.2535C464.239 52.3397 258.131 102.21 346.349 233.052C346.621 233.456 346.909 233.954 347.114 234.395C383.625 313.036 104.059 286.934 81.54 233.684C58.9535 180.275 -90.0633 -58.2366 81.54 13.2535Z" fill="#F4C84D"/>
                 </svg>
-                <h3>TITL</h3>
-                <p>"TEXT TEXT TEXT</p>
-                <div class="testimonial-dots"><span></span><span></span><span></span><span></span><span></span></div>
+                <h3>Oplevelse 2</h3>
+                <p>"Varm og imødekommende psykolog. Whiteboard-øvelserne gjorde svære tanker synlige og nemme at forstå."</p>
             </article>
 
             <article class="anmeldese-kort">
-                <svg class="testimonial illustration" viewBox="0 0 384 284"> <path
-                        d="M81.54 13.2535C253.143 84.7435 229.126 -25.8956 346.777 13.2535C464.239 52.3397 258.131 102.21 346.349 233.052C346.621 233.456 346.909 233.954 347.114 234.395C383.625 313.036 104.059 286.934 81.54 233.684C58.9535 180.275 -90.0633 -58.2366 81.54 13.2535Z"
-                        fill="#F4C84D"
-                />
+                <svg class="testimonial illustration" viewBox="0 0 384 284" preserveAspectRatio="none">
+                    <path d="M81.54 13.2535C253.143 84.7435 229.126 -25.8956 346.777 13.2535C464.239 52.3397 258.131 102.21 346.349 233.052C346.621 233.456 346.909 233.954 347.114 234.395C383.625 313.036 104.059 286.934 81.54 233.684C58.9535 180.275 -90.0633 -58.2366 81.54 13.2535Z" fill="#F4C84D"/>
                 </svg>
-                <h3>TITL</h3>
-                <p>"TEXT TEXT TEXT</p>
-                <div class="testimonial-dots"><span></span><span></span><span></span><span></span><span></span></div>
+                <h3>Oplevelse 3</h3>
+                <p>"Trygt rum lige fra starten. Jeg føler mig meget stærkere rustet nu bagefter."</p>
             </article>
         </div>
     </div>
 </section>
 
-<!-- ============ CTA / SNAK ============ -->
+<svg class="fluid-flow-wave-2" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M1440,20 C1100,110 750,10 400,90 C220,130 90,60 0,40 L0,140 L1440,140 Z" fill="var(--bg-main)"></path>
+    <path d="M1440,20 C1100,110 750,10 400,90 C220,130 90,60 0,40" fill="none" stroke="var(--bg-section)" stroke-width="4"></path>
+</svg>
+
 <section class="cta">
-    <svg class="wave wave-top-green" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,0 L1440,0 L1440,35 C1100,110 720,10 360,75 C180,105 60,45 0,90 Z" fill="var(--green)"/>
-    </svg>
     <div class="cta-inner">
+        <h1 class="cta-title">Skal vi tage en uforpligtende snak?</h1>
+
         <div class="cta-text">
-            <p>Det kan føles overvældende at række ud efter hjælp. Derfor tilbyder jeg altid en gratis og uforpligtende forsamtale på 15 minutter over telefonen. hvor jeg ringer dig op.</p>
+            <p>Det kan føles overvældende at række ud efter hjælp. Derfor tilbyder jeg altid en gratis og uforpligtende forsamtale på 15 minutter over telefonen, hvor jeg ringer dig op.</p>
             <p>Det giver dig mulighed for at mærke efter, om jeg er den rette til at hjælpe dig videre.</p>
             <a href="#" class="btn btn-gold btn-lg">Book forsamtale</a>
         </div>
+
         <div class="cta-media">
-            <h1 class="cta-title">Skal vi tage en uforpligtende snak?</h1>
-            <div class="photo-placeholder blob blob-outline">Foto: klinik</div>
+            <img class="cta-img" src="images/snak.png"></img>
         </div>
     </div>
-    <svg class="wave wave-bottom-green" viewBox="0 0 1440 130" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,130 L1440,130 L1440,80 C1100,20 720,110 360,50 C180,20 60,90 0,65 Z" fill="var(--green)"/>
-    </svg>
 </section>
 
-<!-- ============ FOOTER ============ -->
 <footer class="site-footer">
     <svg class="footer-wave" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
         <path d="M0,0 L1440,0 L1440,80 C1150,140 1000,30 720,75 C470,115 250,55 0,95 Z" fill="var(--bg-main)"/>
     </svg>
     <div class="footer-inner">
         <div class="footer-col">
-            <p class="footer-line">Kontakt</p>
-            <p class="footer-line">Mail</p>
-            <p class="footer-line">TLF</p>
-            <p class="footer-line">adresse og cvrnr</p>
+            <p class="footer-line"><b>Kontakt:</b> Amalie Veber</p>
+            <p class="footer-line"><b>Mail:</b> kontakt@psykologveber.dk</p>
+            <p class="footer-line"><b>TLF:</b> +45 00 00 00 00</p>
+            <p class="footer-line">Roskilde Centrum — CVR: 12345678</p>
         </div>
         <div class="footer-col footer-col-right">
-            <a href="#" class="footer-link">Privathedspolitik</a>
-            <a href="#" class="footer-link">Regler og bettingelser</a>
+            <a href="#" class="footer-link">Privatlivspolitik</a>
+            <a href="#" class="footer-link">Regler og betingelser</a>
         </div>
     </div>
-    <p class="footer-copy">2026 Copyright &amp; ejet af ...</p>
+    <p class="footer-copy">&copy; 2026 Copyright &amp; ejet af Psykolog Amalie Veber</p>
 </footer>
 
 <script src="js/js1.js"></script>

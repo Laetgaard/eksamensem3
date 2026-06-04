@@ -76,7 +76,6 @@ p { margin: 0 0 1rem; }
     /* Rounded corners & styling border */
     border-radius: 50px; /* High value creates a perfect capsule shape */
     border: 1px solid rgba(255, 255, 255, 0.15);
-    overflow: hidden; /* Ensures the glass effect stays within the rounded corners */
 }
 
 .header-inner {
@@ -147,30 +146,24 @@ p { margin: 0 0 1rem; }
 }
 
 @media (max-width: 768px) {
-    .header-inner {
-        gap: 0.8rem; /* Tightens space to fit mobile displays */
-        padding: 0.6rem 1rem;
+    .hero-img, .hero-media{
+        opacity: 1; /* restore full image opacity on mobile to remove the overlay */
     }
-
-    .wordmark {
-        font-size: 0.95rem; /* Shrinks the text size so everything fits */
-        white-space: normal; /* Allows text to wrap neatly if on a very small phone */
-    }
-
     /* CRUCIAL: Pushes this button AND the burger menu together to the right edge */
     .btn-book-tid {
         margin-left: auto;
         padding: 0.45rem 0.8rem;
         font-size: 0.85rem;
     }
-
-    /* Reveal and style the 3-line Hamburger Box */
+    /* ============================================================
+           UPGRADED BURGER MENU (Inside your mobile @media query)
+           ============================================================ */
     .burger-menu {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 26px;
-        height: 18px;
+        width: 28px;
+        height: 20px;
         background: none;
         border: none;
         padding: 0;
@@ -178,14 +171,46 @@ p { margin: 0 0 1rem; }
         z-index: 30;
     }
 
-    /* The three individual lines inside the burger button */
     .burger-menu span {
         width: 100%;
-        height: 3px;
-        background-color: var(--text-dark);
-        border-radius: 2px;
-        transition: all 0.25s ease-in-out;
+        height: 2.5px; /* Slightly thinner for a sharper, modern look */
+        background-color: #ffffff;
+        border-radius: 4px;
+        /* Premium cubic-bezier transition for snappy, fluid motion */
+        transition: transform 0.35s cubic-bezier(0.4, 0.0, 0.2, 1),
+        opacity 0.3s ease,
+        background-color 0.2s ease;
     }
+
+    /* 🟢 THE HOVER EFFECT */
+    .burger-menu:hover span {
+        background-color: var(--gold-btn); /* Changes to your gold color */
+    }
+
+    /* Slightly separates the top and bottom lines when hovered */
+    .burger-menu:hover span:nth-child(1) { transform: translateY(-1.5px); }
+    .burger-menu:hover span:nth-child(3) { transform: translateY(1.5px); }
+
+    /* 🟢 THE 'X' ANIMATION (When clicked) */
+    .burger-menu.open span:nth-child(1) {
+        /* Translates down exactly half the height of the button (10px) minus half the line height */
+        transform: translateY(8.5px) rotate(45deg);
+        background-color: #ffffff; /* Keeps X white for high contrast */
+    }
+
+    .burger-menu.open span:nth-child(2) {
+        opacity: 0;
+        transform: translateX(10px); /* Slides the middle line smoothly out to the right before fading */
+    }
+
+    .burger-menu.open span:nth-child(3) {
+        transform: translateY(-8.5px) rotate(-45deg);
+        background-color: #ffffff;
+    }
+
+    /* Prevent the hover spacing expansion from breaking the 'X' shape */
+    .burger-menu.open:hover span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+    .burger-menu.open:hover span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
 
     /* Convert standard navigation links into a clean slide-down menu drawer */
     .main-nav {
@@ -225,16 +250,87 @@ p { margin: 0 0 1rem; }
         transform: translateY(0);
     }
 
-    /* Smoothly animates the 3 horizontal lines into an 'X' close button when clicked */
-    .burger-menu.open span:nth-child(1) {
-        transform: translateY(7.5px) rotate(45deg);
+    .main-nav {
+        position: absolute;
+        /* Push it down slightly past the rounded header */
+        top: 120%;
+        left: 0;
+        right: 0;
+        background: var(--bg-main);
+        flex-direction: column;
+        gap: 0;
+        padding: 0; /* Removed padding to let border-radius work cleanly */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        margin-left: 0;
+
+        /* Give the drop-down box its own rounded corners */
+        border-radius: 20px;
+        overflow: hidden; /* Keep the hover backgrounds inside the rounded corners */
+
+        /* Animation states */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
     }
-    .burger-menu.open span:nth-child(2) {
-        opacity: 0; /* Blinds out middle line */
+
+    /* 1. FIX THE FLOATING NAVBAR SQUEEZE */
+    .site-header {
+        /* Expand the navbar width on mobile so text doesn't stack vertically */
+        left: 4% !important;
+        right: 4% !important;
+        top: 15px;
+        border-radius: 20px;
     }
-    .burger-menu.open span:nth-child(3) {
-        transform: translateY(-7.5px) rotate(-45deg);
+
+    .header-inner {
+        padding: 0.5rem 1rem;
+        justify-content: space-between;
     }
+
+    .wordmark {
+        font-size: 0.9rem; /* Prevent name from wrapping into two lines */
+        white-space: nowrap;
+    }
+
+    /* 2. WIDEN THE SVG BEIGE ZONE & PUSH GREEN WAVE RIGHT */
+    .hero-wave-divider {
+        /* Scaling the SVG past 100% width expands the beige canvas on mobile */
+        width: 185%;
+        left: -45%; /* Shifts the green band safely over to the right edge */
+        bottom: 0;
+        height: 100%;
+    }
+
+    /* 3. BETTER TEXT PACING & SPACING */
+    .hero-content {
+        /* Reduce the massive 26rem desktop top padding so text moves up */
+        padding: 10rem 1.5rem 3rem;
+        text-align: left;
+        box-sizing: border-box;
+        z-index: 2;
+    }
+    .hero-content h1 {
+        /* CRUCIAL: Allow headline to wrap naturally on phone screens */
+        white-space: normal !important;
+        font-size: 2.2rem; /* Scale down size to fit mobile viewports */
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 1.2rem;
+        max-width: 100%;
+    }
+    .hero-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Forces the photo to stay crisp and fully saturated */
+        display: block;
+    }
+
 }
 
 /* ============================================================
@@ -320,7 +416,6 @@ p { margin: 0 0 1rem; }
     width: 110%; height: 110%;
     min-height: 260px;
     display: flex; align-items: center; justify-content: center;
-    color: #4a533a;
     font-weight: 700;
     text-align: center;
 }
@@ -356,17 +451,16 @@ p { margin: 0 0 1rem; }
     position: absolute;
     top: 0; right: 0;
 }
-.hero-media .hero-img { height: 120%; }
+.hero-img { height: 140%; }
 .hero-curve {
     position: absolute;
     top: 0; right: 0;
-    width: 20%; height: 100%;
+    width: 40%; height: 100%;
     z-index: 2;
 }
 .hero-content {
     position: relative;
     z-index: 3;
-    max-width: var(--maxw);
     margin: 0 auto;
     padding: 5rem 2rem 0rem;
 }
@@ -404,29 +498,117 @@ p { margin: 0 0 1rem; }
 .feature-icon svg { height: 64px; width: 64px; }
 .feature-card h2 { font-size: 1.45rem; margin: 0.2rem 0 0.9rem; color: var(--card-text); }
 .feature-card p { font-size: 0.94rem; font-weight: 600; margin: 0; }
-
 /* ============================================================
-   MØD PSYKOLOGEN
+   MØD PSYKOLOGEN (About Section)
    ============================================================ */
 .about {
     position: relative;
-    background: var(--bg-section);
-    padding: 7rem 1.5rem;
+    /* Soft yellow/beige matching your image design */
+    background: #FDF4CD;
+    /* High top and bottom padding so text clears the thick waves */
+    z-index: 1;
+    margin-bottom: 0;
 }
+
+/* 1. Absolute Positioning for the SVG Ribbons */
+.about-wave-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    z-index: 2;
+    pointer-events: none;
+    padding-bottom: 3%;
+}
+
+.about-wave-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    z-index: 2;
+    pointer-events: none;
+    padding-top: 3%;
+}
+
+/* 2. Layout Grid for Text and Image */
 .about-inner {
+    position: relative;
+    z-index: 3; /* Keeps content safely above the wave layers */
     max-width: var(--maxw);
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 4rem;
     align-items: center;
 }
-.about-text h1 { font-size: 2.4rem; margin: 0 0 1.5rem; }
-.about-text p { max-width: 46ch; }
-.about-text .btn { margin-top: 0.5rem; }
-.about-photo { display: flex; justify-content: center; }
-.about-photo .photo-placeholder { width: 360px; height: 360px; min-height: 0; border-radius: 50%; }
 
+.about-text h1 {
+    font-size: 2.8rem;
+    margin: 0 0 1.5rem;
+    padding-left: 5%;
+}
+
+.about-text p {
+    max-width: 48ch;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    padding-left: 5%;
+}
+
+.about-text .btn {
+    margin-top: 1rem;
+    padding-left: 5%;
+}
+
+/* 3. The Organic Image Mask ("Form") */
+.about-photo {
+    display: flex;
+    justify-content: center;
+}
+
+.about-photo .blob-img {
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    /* This complex border-radius creates the asymmetric blob shape */
+    border-radius: 65% 35% 30% 70% / 50% 40% 60% 50%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================================
+   MOBILE RESPONSIVE ADJUSTMENTS
+   ============================================================ */
+@media (max-width: 768px) {
+    .about {
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    /* ensure SVG waves sit flush */
+    .about-wave-top,
+    .about-wave-bottom,
+    .about > svg {
+        display: block;
+        width: 100%;
+        left: 0;
+    }
+
+    .about-wave-top { top: 0; }
+    .about-wave-bottom { bottom: 0; }
+
+    /* fallback selectors if the SVGs don't have the classes in HTML */
+    .about > svg:first-of-type { position: absolute; top: 0; left: 0; }
+    .about > svg:last-of-type  { position: absolute; bottom: 0; left: 0; }
+
+    /* keep inner content spaced from the wave edges */
+    .about-inner { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+}
 /* ============================================================
    BEHANDLINGSFORLØB
    ============================================================ */
@@ -470,16 +652,14 @@ p { margin: 0 0 1rem; }
 .step-arrow svg { width: 52px; }
 .process-inner .btn { margin-top: 2.5rem; }
 
-/* ============================================================
-   TESTIMONIALS
-   ============================================================ */
+
 /* TESTIMONIALS
    ============================================================ */
 .testimonials {
     position: relative;
     background: var(--bg-section);
     /* Reduced horizontal padding from 1.5rem to 1rem to utilize screen edges */
-    padding: 7rem 1rem 5rem;
+    padding: 5rem 1rem 5rem;
 }
 
 .testimonials-inner {
