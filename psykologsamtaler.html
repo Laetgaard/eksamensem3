@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Domine:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styletest.css" />
+  <link rel="stylesheet" href="css/psykologsamtaler.css" />
 </head>
 <body>
 
@@ -19,8 +19,8 @@
     </div>
 
     <nav class="main-nav" id="mainNav">
-      <a href="index.html" class="active">Forside</a>
-      <a href="#">Samtaleterapi</a>
+      <a href="index.html">Forside</a>
+      <a href="psykologsamtaler.html" class="active">Samtaleterapi</a>
       <a href="moedregrupper.html">Mødregrupper</a>
       <a href="#">Priser</a>
       <a href="#">Om klinikken</a>
@@ -48,9 +48,9 @@
   </svg>
 
   <div class="hero-content">
-    <h1>Psykolog centralt i Roskilde</h1>
+    <h1>Psykologsamtaler i Roskilde</h1>
     <p>Hos mig er du velkommen, som du er. Med varme og empati skaber jeg et trygt rum, hvor vi sammen løser dine udfordringer.</p>
-    <p>Start med en gratis og uforpligtende forsamtale, og mærk om jeg er den rette til at hjælpe dig.</p>
+    <p>Start med en gratis og uforpligtende forsamtale, og mærk om jeg er den rette til at hjælpe dig</p>
     <a href="#" class="btn btn-gold">BOOK FORSAMTALE</a>
   </div>
 </section>
@@ -125,12 +125,25 @@
 
 <section class="about">
   <div class="about-inner">
-    <h1 class="about-title">Mød Psykologen</h1>
+    <h1 class="about-title">Hvad arbejder vi med i terapien</h1>
 
     <div class="about-text">
-      <p>Mit navn er Amalie, og jeg er autoriseret psykolog med klinik centralt i Roskilde.</p>
-      <p>For mij er det afgørende, at du føler dig mødt med varme, empati og tryghed fra det øjeblik, du træder ind ad døren. Terapi hos mig foregår i øjenhøjde og udgangspunktet er altid din oplevelse af din situation.</p>
-      <p>Jeg har særlig erfaring med at hjælpe unge voksne, der kæmper med selvværd og præstationspres, samt forældre, der søger balance og støtte i forældreskabet. I mine samtaler arbejder jeg bredt, men trækker især på metoden ACT.</p>
+      <p>Gennem vores samtaler støtter jeg dig i din udviklingsrejse og i at tage personligt lederskab over dit liv.
+        Jeg tror på, at al meningsfuld forandring kommer indefra.
+        Derfor har vi fokus på, at styrke din forbindelse indadtil, så du bedre kan mærke, hvad der er rigtigt og meningsfuldt for dig.
+      </p>
+      <br>
+      <h3>Konkret kan vi bl.a. arbejde med:</h3>
+      <ul>
+        <li> at du bedre kan forstå og acceptere dig selv og andre.</li>
+        <li>at du kan tage personligt lederskab og ansvar for dit liv.</li>
+        <li>at du bedre kan kommunikere tydeligt hvad dine behov og grænser er.</li>
+        <li>at styrke og fordybe din relation til dig selv og andre.</li>
+        <li>at bryde med uhensigtsmæssige mønstre og overbevisninger, som ikke længere tjener dig.</li>
+        <li>at støtte dig i at komme igennem en svær tid.</li>
+      </ul>
+      <p>Jeg modtager løbende supervision og faglig sparring på mit arbejde, hvilket er med til at sikre et højt fagligt niveau.
+      Jeg er underlagt reglerne om tavshedspligt og arbejder under de Etiske Principper For Nordiske Psykologer.</p>
       <a href="#" class="btn btn-gold">Læs mere</a>
     </div>
 
@@ -149,42 +162,53 @@
   <div class="process-inner">
     <h1 class="section-title-processen">Behandlingsforløb</h1>
 
-    <div class="steps">
-      <article class="step-card">
-        <div class="step-head">
-          <span class="step-num">1</span>
+    <div class="process-cards-container">
+
+      <!-- KORT 1 -->
+      <article class="process-card">
+        <div class="card-header">
+          <span class="card-num">1</span>
           <h2>Uforpligtende forsamtale</h2>
         </div>
-        <p>Du starter med at booke en gratis og uforpligtende telefonisk forsamtale direkte i kalenderen. Her ringer jeg dig op, så du kan føle dig helt sikker på, at jeg er den rette psykolog til at hjælpe dig.</p>
+        <div class="card-image">
+          <img src="images/ompsykologen.jpeg" alt="Amalie Veber i sin klinik">
+        </div>
+        <div class="card-content">
+          <p>Det første skridt mod forandring skal være så nemt og trygt som muligt. Derfor tilbyder jeg altid en gratis og uforpligtende telefonisk forsamtale, så du kan mærke efter, om jeg er den rette psykolog for dig.</p>
+          <p>Du finder blot en tid i kalenderen, der passer dig, og så ringer jeg dig op. På den måde slipper du for at ringe forgæves eller sidde i kø på telefonen, og vi kan i ro og mag tage en indledende snak om, hvad du har brug for hjælp til.</p>
+        </div>
       </article>
 
-      <div class="step-arrow" aria-hidden="true">
-        <svg viewBox="0 0 60 30" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 15h46M38 5l12 10-12 10"/>
-        </svg>
-      </div>
-
-      <article class="step-card">
-        <div class="step-head">
-          <span class="step-num">2</span>
+      <!-- KORT 2 -->
+      <article class="process-card">
+        <div class="card-header">
+          <span class="card-num">2</span>
           <h2>Din situation i fokus</h2>
         </div>
-        <p>Terapien tager altid udgangspunkt i din unikke situation og de udfordringer, du møder i livet som f.eks. lavt selvværd, social angst eller stress. Vi arbejder målrettet med samtaler og praktiske øvelser, hvor jeg primært bruger metoden ACT.</p>
+        <div class="card-image">
+          <img src="images/rum4.jpeg" alt="Psykologklinik og samtalemiljø i Roskilde">
+        </div>
+        <div class="card-content">
+          <p>Når du træder ind i min klinik i hjertet af Roskilde, er målet at skabe et rum, hvor du med det samme mærker ro, varme og tryghed. Her er der plads til at smide facaden.</p>
+          <p>Vores individuelle samtaler tager altid udgangspunkt i din helt unikke situation, dine værdier og de konkrete udfordringer, du møder i din hverdag. Du bliver lyttet til og mødt præcis dér, hvor du er – uanset om det handler om lavt selvværd, stress, overvældelse eller de store transformationer i livet.</p>
+        </div>
       </article>
 
-      <div class="step-arrow" aria-hidden="true">
-        <svg viewBox="0 0 60 30" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 15h46M38 5l12 10-12 10"/>
-        </svg>
-      </div>
-
-      <article class="step-card">
-        <div class="step-head">
-          <span class="step-num">3</span>
+      <!-- KORT 3 -->
+      <article class="process-card">
+        <div class="card-header">
+          <span class="card-num">3</span>
           <h2>Ro og forandring</h2>
         </div>
-        <p>Gennem samtalerne finder vi sammen frem til, hvordan du håndterer de svære perioder og tanker. Målet er at skade en forandring på det indre eller ydre plan, som giver dig en hverdag med mere glæde, overskud og mening i længden.</p>
+        <div class="card-image">
+          <img src="images/behandling.jpeg" alt="Whiteboard og redskaber til ACT metoden">
+        </div>
+        <div class="card-content">
+          <p>I terapien arbejder vi målrettet med at give dig konkrete redskaber til at håndtere det, der tynger. Jeg tager primært udgangspunkt i ACT (Acceptance and Commitment Therapy).</p>
+          <p>For at gøre de psykologiske mekanismer håndgribelige og overskuelige, bruger jeg ofte min tavlen til at visualisere dine tanker, mønstre og personlige værdier. Det visuelle arbejde på tavlen hjælper dig med at skabe overblik over dit tankemylder eller svære følelser, så du kan finde ro og skabe en holdbar, meningsfuld forandring i dit liv.</p>
+        </div>
       </article>
+
     </div>
 
     <a href="#" class="btn btn-gold">Læs mere</a>
