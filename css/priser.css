@@ -142,8 +142,7 @@ HEADER & NAVIGATION ARCHITECTURE
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-    url('../images/billede3%20(1).jpeg');
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('../images/billede3%20(1).jpeg');
     background-size: cover;
     background-position: center;
     padding: 40px 24px 230px 24px;
@@ -215,7 +214,7 @@ WAVES & SECTIONS GENERAL
 }
 
 section {
-    padding: 50px 8px; /* Nedsat fra 24px til 16px for mindre side-padding på alle sektioner */
+    padding: 50px 8px;
     max-width: 100%;
     box-sizing: border-box;
 }
@@ -243,7 +242,6 @@ section {
     margin: 0 auto;
 }
 
-
 /* DESKTOP ROW ARCHITECTURE FOR SPLIT-SECTIONS */
 .split-row {
     display: flex;
@@ -265,7 +263,7 @@ section {
     text-align: left;
 }
 
-/* 👥 BEHANDLINGSFORLØB GRID (Desktop: Tekst til venstre, Billede til højre) */
+/* 👥 BEHANDLINGSFORLØB GRID */
 .behandling-grid {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
@@ -345,11 +343,11 @@ ul li::before {
 }
 
 /* ============================================================
-🗓️ NÆSTE HOLD GRUPPEFORLØB (Desktop: Billede venstre, Tekst højre)
+🗓️ NÆSTE HOLD GRUPPEFORLØB
 ============================================================ */
 .naeste-hold-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr; /* Giver teksten en smule mere plads end billedet */
+    grid-template-columns: 1fr 1.2fr;
     gap: 30px 60px;
     max-width: 1100px;
     margin: 0 auto;
@@ -363,45 +361,12 @@ ul li::before {
     text-align: left;
 }
 .naeste-hold-content .btn {
-    margin: 25px 0 0 0; /* Placerer knappen under teksten i højre side */
+    margin: 25px 0 0 0;
     display: inline-block;
 }
 
 /* ============================================================
-📲 MOBIL RESPONSIVITET (Tilføjes i bunden af din eksisterende @media blok)
-============================================================ */
-@media (max-width: 768px) {
-
-    /* 📲 STRØMLINET FORLØB PÅ MOBIL: (Title -> Image -> Text -> Button) */
-    .naeste-hold-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 15px !important;
-        width: 100% !important;
-    }
-    .naeste-hold-image {
-        order: 1 !important; /* Billedet rykker op lige under den centrerede overskrift */
-        width: 100% !important;
-        max-width: 340px !important;
-        margin: 10px auto 15px auto !important;
-    }
-    .naeste-hold-content {
-        order: 2 !important; /* Tekstblokken følger efter */
-        display: flex !important;
-        flex-direction: column !important;
-        width: 100% !important;
-    }
-    .naeste-hold-content .btn {
-        order: 3 !important; /* Tvinger knappen helt i bunden af sektionen */
-        margin: 25px auto 0 auto !important;
-        width: 100% !important;
-        max-width: 290px !important;
-        text-align: center;
-    }
-}
-
-/* ============================================================
-🗓️ NÆSTE GRUPPEFORLØB GRID (Desktop: Tekst til venstre, Billede til højre)
+🗓️ NÆSTE GRUPPEFORLØB GRID
 ============================================================ */
 .næste-forløb-grid {
     display: grid;
@@ -416,14 +381,12 @@ ul li::before {
     text-align: left;
 }
 .næste-forløb-content .btn {
-    margin: 25px 0 0 0; /* Placerer knappen under teksten i venstre side */
+    margin: 25px 0 0 0;
     display: inline-block;
 }
 .næste-forløb-image {
     grid-column: 2;
 }
-
-
 
 /* ============================================================
 FOOTER
@@ -457,7 +420,7 @@ footer {
 }
 
 /* ============================================================
-📲 PHONE & MOBILE OVERRIDES
+📲 PHONE & MOBILE OVERRIDES (Combined & Cleaned)
 ============================================================ */
 @media (max-width: 768px) {
     .site-header { left: 4%; right: 4%; top: 15px; border-radius: 20px; }
@@ -521,20 +484,49 @@ footer {
     }
     .hero h1 { font-size: 2.2rem !important; }
     .hero p { font-size: 1.05rem !important; }
+    .hero-wave { bottom: -5px !important; }
 
-    .hero-wave {
-        bottom: -5px !important;
-    }
-
-    /* Mobil-reordering (Generel for grøn sektion) */
-    .green-section.dynamic-section {
-        display: block !important;
-        padding: 55px 20px !important;
+    /* Mindre side-padding på alle sektioner på mobilen */
+    section {
+        padding: 55px 12px !important;
     }
 
     .section-title {
         font-size: 2.1rem !important;
         margin-bottom: 25px !important;
+    }
+
+    /* 📲 STRØMLINET FLUID-ORDER FOR ALL CONTENT GRIDS ON MOBILE
+       (Styrer at strukturen altid bliver: Title -> Image -> Text 1 -> Text 2) */
+    .behandling-grid, .naeste-hold-grid, .næste-forløb-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        width: 100% !important;
+    }
+
+    .behandling-image, .naeste-hold-image, .næste-forløb-image {
+        order: 1 !important; /* Billedet sendes helt i top lige under h2-titlen */
+        width: 100% !important;
+        max-width: 340px !important;
+        margin: 10px auto 15px auto !important;
+    }
+
+    .behandling-text-1, .naeste-hold-content, .næste-forløb-content {
+        order: 2 !important;
+    }
+
+    .behandling-text-2 {
+        order: 3 !important;
+    }
+
+    /* Knapper centreres og tilpasses bunden af mobilvisning */
+    .naeste-hold-content .btn, .næste-forløb-content .btn {
+        order: 4 !important;
+        margin: 25px auto 0 auto !important;
+        width: 100% !important;
+        max-width: 290px !important;
+        text-align: center;
     }
 
     .split-row {
@@ -543,77 +535,13 @@ footer {
         margin-bottom: 40px !important;
         width: 100% !important;
     }
-
     .row-image {
         width: 100% !important;
         max-width: 340px !important;
         margin: 0 auto !important;
     }
-
     .row-text {
         width: 100% !important;
         text-align: left !important;
     }
-
-    /* 📲 STRØMLINET BEHANDLINGSFORLØB PÅ MOBIL: (Title -> Text Part 1 -> Image -> Text Part 2) */
-    .behandling-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 20px !important;
-        width: 100% !important;
-    }
-    .behandling-text-1 {
-        order: 1 !important;
-    }
-    .behandling-image {
-        order: 2 !important;
-        width: 100% !important;
-        max-width: 240px !important;
-        display: flex;
-        justify-content: center;
-    }
-    .behandling-text-2 {
-        order: 3 !important;
-    }
-
-    /* Mindre side-padding på alle sektioner på mobilen */
-    section {
-        padding: 55px 12px !important;
-    }
-
-    /* 📲 STRØMLINET FORLØB PÅ MOBIL: (Title -> Image -> Text -> Button) */
-    .næste-forløb-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 15px !important;
-        width: 100% !important;
-    }
-    .næste-forløb-image {
-        order: 1 !important; /* Billedet placeres øverst direkte under titlen */
-        width: 100% !important;
-        max-width: 340px !important;
-        margin: 10px auto 15px auto !important;
-    }
-    .næste-forløb-content {
-        order: 2 !important; /* Tekstblokken følger efter */
-        display: flex !important;
-        flex-direction: column !important;
-    }
-    .næste-forløb-content .btn {
-        order: 3 !important; /* Tvinger selve knappen helt i bunden under teksten */
-        margin: 25px auto 0 auto !important;
-        width: 100% !important;
-        max-width: 290px !important;
-        text-align: center;
-    }
-
-    /* Standard adfærd for øvrige sektioner */
-    .dynamic-section:not(.green-section):not(.cream-section) {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-    }
-    .dynamic-section:not(.green-section) .section-photo { order: 2 !important; margin-bottom: 25px !important; }
-    .dynamic-section:not(.green-section) .section-text-container { order: 3 !important; }
-    .dynamic-section:not(.green-section) .section-button { order: 4 !important; }
 }
