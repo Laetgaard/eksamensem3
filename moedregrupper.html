@@ -14,20 +14,20 @@
 <header class="site-header">
   <div class="header-inner">
     <div class="brand">
-      <div class="logo-placeholder">logo</div>
+      <a href="index.html"><div class="logo-placeholder">logo</div></a>
       <span class="wordmark">PSYKOLOG AMALIE VEBER</span>
     </div>
 
     <nav class="main-nav" id="mainNav">
-      <a href="index.html" >Forside</a>
-      <a href="#">Samtaleterapi</a>
+      <a href="index.html">Forside</a>
+      <a href="psykologsamtaler.html">Samtaleterapi</a>
       <a href="moedregrupper.html" class="active">Mødregrupper</a>
-      <a href="#">Priser</a>
-      <a href="#">Om klinikken</a>
-      <a href="#" class="btn-nav-mobile">BOOK TID</a>
+      <a href="priser.html">Priser & Praktisk</a>
+      <a href="omklinikken.html">Om klinikken</a>
+      <a href="https://healper.dk/matching/book/1718/?external=1" class="btn-nav-mobile">BOOK TID</a>
     </nav>
 
-    <a href="#" class="btn btn-gold btn-book-tid btn-nav-desktop">BOOK TID</a>
+    <a href="https://healper.dk/matching/book/1718/?external=1" class="btn btn-gold btn-book-tid btn-nav-desktop">BOOK TID</a>
 
     <button class="burger-menu" id="burgerBtn" aria-label="Toggle navigation">
       <span></span>
@@ -221,13 +221,13 @@
       </p>
 
       <!-- Knappen placeret under teksten i højre kolonne -->
-      <button class="btn section-button" id="ctaBtn">Skriv dig op</button>
+      <a href="https://ayhgld.subscribepage.io/"><button class="btn section-button" id="ctaBtn">Skriv dig op</button></a>
     </div>
 
   </div>
 </section>
 
-<!-- BØLGE 5 -->
+
 <div class="wave-container margin-minus">
   <svg width="1280" height="530" viewBox="0 0 1280 530" fill="none" xmlns="http://www.w3.org/2000/svg" class="wave-svg">
     <mask id="mask_wave_5" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1280" height="530">
@@ -239,21 +239,92 @@
   </svg>
 </div>
 
-<footer>
+<!-- Add to `css/common.css` (or append to existing CSS files) -->
+<style>
+  /* Footer: two columns with centered copyright below */
+  .site-footer {
+    background-color: var(--green);
+    color: var(--on-green);
+    padding: 36px 24px;
+  }
+  .site-footer .footer-grid {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+  }
+  .site-footer .footer-left,
+  .site-footer .footer-right {
+    flex: 1 1 320px;
+    box-sizing: border-box;
+  }
+  .site-footer .footer-left {
+    text-align: left;
+  }
+  .site-footer .footer-right {
+    text-align: right;
+  }
+  .site-footer a {
+    color: var(--on-green);
+    text-decoration: underline;
+    font-weight: 700;
+  }
+  .site-footer .footer-hint {
+    margin: 0 0 8px 0;
+    opacity: 0.95;
+    font-weight: 600;
+  }
+  .site-footer .footer-contact,
+  .site-footer .footer-address {
+    margin: 6px 0;
+    font-weight: 600;
+  }
+
+  /* bottom row */
+  .site-footer .footer-bottom {
+    max-width: var(--maxw);
+    margin: 18px auto 0;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    text-align: center;
+    color: rgba(255,255,255,0.95);
+    font-size: 0.95rem;
+  }
+
+  /* Responsive: stack columns on small screens */
+  @media (max-width: 768px) {
+    .site-footer .footer-grid {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .site-footer .footer-right {
+      text-align: center;
+      margin-top: 8px;
+    }
+  }
+</style>
+
+<!-- Replace the footer in each page with this HTML footer -->
+<footer class="site-footer">
   <div class="footer-grid">
-    <div>
-      <h3 style="font-family: var(--font-h1); color: var(--on-green); margin-bottom: 15px;">Kontakt</h3>
-      <p>Mail: kontakt@psykologroskilde.dk</p>
-      <p>TLF: +45 12 34 56 78</p>
-      <p>Adresse & CVR-nr: Storgade 10, 4000 Roskilde</p>
+    <div class="footer-left">
+      <p class="footer-hint">Har du spørgsmål?</p>
+      <p class="footer-address">Adresse: Københavnsvej 4, 1. sal, 4000 Roskilde</p>
     </div>
-    <div class="footer-links">
-      <a href="#">Privatlivspolitik</a>
-      <a href="#">Regler og betingelser</a>
+
+    <div class="footer-right">
+      <p class="footer-contact">TLF: <a href="tel:+4542403205">+45 42 40 32 05</a></p>
+      <p class="footer-contact">Mail: <a href="mailto:amalieveber@outlook.com">amalieveber@outlook.com</a></p>
     </div>
   </div>
-  <div class="copyright">
-    2026 Copyright & Ejet af ...
+
+  <div class="footer-bottom">
+    2026 Copyright &amp; Ejet af Psykolog Amalie Veber. Alle rettigheder forbeholdes.
   </div>
 </footer>
 

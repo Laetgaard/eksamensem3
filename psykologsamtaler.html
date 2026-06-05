@@ -14,7 +14,7 @@
 <header class="site-header">
   <div class="header-inner">
     <div class="brand">
-      <div class="logo-placeholder">logo</div>
+      <a href="index.html"><div class="logo-placeholder">logo</div></a>
       <span class="wordmark">PSYKOLOG AMALIE VEBER</span>
     </div>
 
@@ -22,12 +22,12 @@
       <a href="index.html">Forside</a>
       <a href="psykologsamtaler.html" class="active">Samtaleterapi</a>
       <a href="moedregrupper.html">Mødregrupper</a>
-      <a href="#">Priser</a>
-      <a href="#">Om klinikken</a>
-      <a href="#" class="btn-nav-mobile">BOOK TID</a>
+      <a href="priser.html">Priser & Praktisk</a>
+      <a href="omklinikken.html">Om klinikken</a>
+      <a href="https://healper.dk/matching/book/1718/?external=1" class="btn-nav-mobile">BOOK TID</a>
     </nav>
 
-    <a href="#" class="btn btn-gold btn-book-tid btn-nav-desktop">BOOK TID</a>
+    <a href="https://healper.dk/matching/book/1718/?external=1" class="btn btn-gold btn-book-tid btn-nav-desktop">BOOK TID</a>
 
     <button class="burger-menu" id="burgerBtn" aria-label="Toggle navigation">
       <span></span>
@@ -272,23 +272,105 @@
   </div>
 </section>
 
-<footer class="site-footer">
-  <svg class="footer-wave" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0,0 L1440,0 L1440,80 C1150,140 1000,30 720,75 C470,115 250,55 0,95 Z" fill="var(--bg-main)"/>
+
+<div class="wave-container margin-minus">
+  <svg width="1280" height="530" viewBox="0 0 1280 530" fill="none" xmlns="http://www.w3.org/2000/svg" class="wave-svg">
+    <mask id="mask_wave_5" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1280" height="530">
+      <rect width="1280" height="530" fill="#D9D9D9"/>
+    </mask>
+    <g mask="url(#mask_wave_5)">
+      <path d="M-7.99994 213.286C75.8372 289.187 218.965 313.045 495.367 271.756C901.254 210.635 1195.26 490.226 1293.04 521.911L1350 540L-50 540Z" fill="#4F6817"/>
+    </g>
   </svg>
-  <div class="footer-inner">
-    <div class="footer-col">
-      <p class="footer-line"><b>Kontakt:</b> Amalie Veber</p>
-      <p class="footer-line"><b>Mail:</b> kontakt@psykologveber.dk</p>
-      <p class="footer-line"><b>TLF:</b> +45 00 00 00 00</p>
-      <p class="footer-line">Roskilde Centrum — CVR: 12345678</p>
+</div>
+
+<!-- Add to `css/common.css` (or append to existing CSS files) -->
+<style>
+  /* Footer: two columns with centered copyright below */
+  .site-footer {
+    background-color: var(--green);
+    color: var(--on-green);
+    padding: 36px 24px;
+  }
+  .site-footer .footer-grid {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+  }
+  .site-footer .footer-left,
+  .site-footer .footer-right {
+    flex: 1 1 320px;
+    box-sizing: border-box;
+  }
+  .site-footer .footer-left {
+    text-align: left;
+  }
+  .site-footer .footer-right {
+    text-align: right;
+  }
+  .site-footer a {
+    color: var(--on-green);
+    text-decoration: underline;
+    font-weight: 700;
+  }
+  .site-footer .footer-hint {
+    margin: 0 0 8px 0;
+    opacity: 0.95;
+    font-weight: 600;
+  }
+  .site-footer .footer-contact,
+  .site-footer .footer-address {
+    margin: 6px 0;
+    font-weight: 600;
+  }
+
+  /* bottom row */
+  .site-footer .footer-bottom {
+    max-width: var(--maxw);
+    margin: 18px auto 0;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    text-align: center;
+    color: rgba(255,255,255,0.95);
+    font-size: 0.95rem;
+  }
+
+  /* Responsive: stack columns on small screens */
+  @media (max-width: 768px) {
+    .site-footer .footer-grid {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .site-footer .footer-right {
+      text-align: center;
+      margin-top: 8px;
+    }
+  }
+</style>
+
+<!-- Replace the footer in each page with this HTML footer -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-left">
+      <p class="footer-hint">Har du spørgsmål?</p>
+      <p class="footer-address">Adresse: Københavnsvej 4, 1. sal, 4000 Roskilde</p>
     </div>
-    <div class="footer-col footer-col-right">
-      <a href="#" class="footer-link">Privatlivspolitik</a>
-      <a href="#" class="footer-link">Regler og betingelser</a>
+
+    <div class="footer-right">
+      <p class="footer-contact">TLF: <a href="tel:+4542403205">+45 42 40 32 05</a></p>
+      <p class="footer-contact">Mail: <a href="mailto:amalieveber@outlook.com">amalieveber@outlook.com</a></p>
     </div>
   </div>
-  <p class="footer-copy">&copy; 2026 Copyright &amp; ejet af Psykolog Amalie Veber</p>
+
+  <div class="footer-bottom">
+    2026 Copyright &amp; Ejet af Psykolog Amalie Veber. Alle rettigheder forbeholdes.
+  </div>
 </footer>
 
 <script src="js/js1.js"></script>
