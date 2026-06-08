@@ -16,6 +16,7 @@
     --font-h1: "Playfair Display", serif;
     --font-h2: "Domine", serif;
     --font-body: "Nunito Sans", sans-serif;
+    --maxw: 1200px;
 }
 
 html, body {
@@ -62,37 +63,28 @@ p { margin: 0 0 1rem; }
    ============================================================ */
 .site-header {
     position: absolute;
-    /* Precise floating dimensions requested */
     top: 2%;
     left: 5%;
     right: 5%;
     z-index: 20;
-
-    /* Green glass styles */
     background: #4a533ac0;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-
-    /* Rounded corners & styling border */
-    border-radius: 50px; /* High value creates a perfect capsule shape */
+    border-radius: 50px;
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
-
 .header-inner {
     display: flex;
     align-items: center;
-    padding: 0.6rem 2rem; /* Generous side padding inside the capsule */
+    padding: 0.6rem 2rem;
 }
-
-/* Brand styling keeps logo & name tightly paired */
 .brand {
     display: flex;
     align-items: center;
-    gap: 1rem; /* Space between logo box and typography text */
+    gap: 1rem;
 }
-
 .logo-placeholder {
-    width: 50px; /* Slightly scaled down to fit nicely inside a capsule bar */
+    width: 50px;
     height: 42px;
     background: #d9d9d9;
     display: flex;
@@ -100,9 +92,8 @@ p { margin: 0 0 1rem; }
     justify-content: center;
     font-family: var(--font-body);
     color: #555;
-    border-radius: 25px; /* Rounds the logo placeholder itself */
+    border-radius: 25px;
 }
-
 .wordmark {
     font-family: var(--font-h1);
     font-weight: 600;
@@ -111,14 +102,11 @@ p { margin: 0 0 1rem; }
     font-size: 1.1rem;
     white-space: nowrap;
 }
-
-/* Pushes the links box and the action button all the way to the right side */
 .main-nav {
     display: flex;
     gap: 0.4rem;
-    margin-left: auto; /* The magic link pushing mechanism */
+    margin-left: auto;
 }
-
 .main-nav a {
     text-decoration: none;
     color: #ffffff;
@@ -128,315 +116,18 @@ p { margin: 0 0 1rem; }
     border-radius: 20px;
     transition: background 0.15s ease;
 }
-
 .main-nav a:hover,
 .main-nav a.active {
     background: rgba(255, 255, 255, 0.2);
 }
-
 .btn-book-tid {
     padding: 0.55rem 1.4rem;
-    margin-left: 1rem; /* Creates separation between last link and button */
-    border-radius: 20px; /* Matches the rounded vibe of the capsule */
+    margin-left: 1rem;
+    border-radius: 20px;
 }
-
-/* Hide the burger icon on desktop monitors */
 .burger-menu {
     display: none;
 }
-
-@media (max-width: 768px) {
-    .hero-img, .hero-media{
-        opacity: 1; /* restore full image opacity on mobile to remove the overlay */
-    }
-    /* CRUCIAL: Pushes this button AND the burger menu together to the right edge */
-    .btn-book-tid {
-        margin-left: auto;
-        padding: 0.45rem 0.8rem;
-        font-size: 0.85rem;
-    }
-    /* ============================================================
-           UPGRADED BURGER MENU (Inside your mobile @media query)
-           ============================================================ */
-    .burger-menu {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 28px;
-        height: 20px;
-        background: none;
-        border: none;
-        padding: 0;
-        cursor: pointer;
-        z-index: 30;
-    }
-
-    .burger-menu span {
-        width: 100%;
-        height: 2.5px; /* Slightly thinner for a sharper, modern look */
-        background-color: #ffffff;
-        border-radius: 4px;
-        /* Premium cubic-bezier transition for snappy, fluid motion */
-        transition: transform 0.35s cubic-bezier(0.4, 0.0, 0.2, 1),
-        opacity 0.3s ease,
-        background-color 0.2s ease;
-    }
-
-    /* 🟢 THE HOVER EFFECT */
-    .burger-menu:hover span {
-        background-color: var(--gold-btn); /* Changes to your gold color */
-    }
-
-    /* Slightly separates the top and bottom lines when hovered */
-    .burger-menu:hover span:nth-child(1) { transform: translateY(-1.5px); }
-    .burger-menu:hover span:nth-child(3) { transform: translateY(1.5px); }
-
-    /* 🟢 THE 'X' ANIMATION (When clicked) */
-    .burger-menu.open span:nth-child(1) {
-        /* Translates down exactly half the height of the button (10px) minus half the line height */
-        transform: translateY(8.5px) rotate(45deg);
-        background-color: #ffffff; /* Keeps X white for high contrast */
-    }
-
-    .burger-menu.open span:nth-child(2) {
-        opacity: 0;
-        transform: translateX(10px); /* Slides the middle line smoothly out to the right before fading */
-    }
-
-    .burger-menu.open span:nth-child(3) {
-        transform: translateY(-8.5px) rotate(-45deg);
-        background-color: #ffffff;
-    }
-
-    /* Prevent the hover spacing expansion from breaking the 'X' shape */
-    .burger-menu.open:hover span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
-    .burger-menu.open:hover span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
-
-    /* Convert standard navigation links into a clean slide-down menu drawer */
-    .main-nav {
-        position: absolute;
-        top: 100%; /* Spawns directly underneath the header bar */
-        left: 0;
-        right: 0;
-        background: var(--bg-main);
-        flex-direction: column;
-        gap: 0;
-        padding: 1rem 0;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-        margin-left: 0; /* Clears out desktop margin-left configuration */
-
-        /* Hidden states by default */
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
-    }
-
-    /* Mobile drop-down link aesthetics */
-    .main-nav a {
-        width: 100%;
-        text-align: center;
-        padding: 1rem 0;
-        border-radius: 0;
-    }
-    .main-nav a:hover {
-        background: rgba(0, 0, 0, 0.03);
-    }
-
-    /* Trigger state: Displays mobile menu drawer when active */
-    .main-nav.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-
-    .main-nav {
-        position: absolute;
-        /* Push it down slightly past the rounded header */
-        top: 120%;
-        left: 0;
-        right: 0;
-        background: var(--bg-main);
-        flex-direction: column;
-        gap: 0;
-        padding: 0; /* Removed padding to let border-radius work cleanly */
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-        margin-left: 0;
-
-        /* Give the drop-down box its own rounded corners */
-        border-radius: 20px;
-        overflow: hidden; /* Keep the hover backgrounds inside the rounded corners */
-
-        /* Animation states */
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
-    }
-
-    /* 1. FIX THE FLOATING NAVBAR SQUEEZE */
-    .site-header {
-        /* Expand the navbar width on mobile so text doesn't stack vertically */
-        left: 4% !important;
-        right: 4% !important;
-        top: 15px;
-        border-radius: 20px;
-    }
-
-    .header-inner {
-        padding: 0.5rem 1rem;
-        justify-content: space-between;
-    }
-
-    .wordmark {
-        font-size: 0.9rem; /* Prevent name from wrapping into two lines */
-        white-space: nowrap;
-    }
-
-    /* 2. WIDEN THE SVG BEIGE ZONE & PUSH GREEN WAVE RIGHT */
-    .hero-wave-divider {
-        /* Scaling the SVG past 100% width expands the beige canvas on mobile */
-        width: 185%;
-        left: -45%; /* Shifts the green band safely over to the right edge */
-        bottom: 0;
-        height: 100%;
-    }
-
-    /* 3. BETTER TEXT PACING & SPACING */
-    .hero-content {
-        /* Reduce the massive 26rem desktop top padding so text moves up */
-        padding: 10rem 1.5rem 3rem;
-        text-align: left;
-        box-sizing: border-box;
-        z-index: 2;
-    }
-    .hero-content h1 {
-        /* CRUCIAL: Allow headline to wrap naturally on phone screens */
-        white-space: normal !important;
-        font-size: 2.2rem; /* Scale down size to fit mobile viewports */
-        line-height: 1.2;
-        margin-bottom: 1rem;
-    }
-
-    .hero-content p {
-        font-size: 0.95rem;
-        line-height: 1.5;
-        margin-bottom: 1.2rem;
-        max-width: 100%;
-    }
-    .hero-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Forces the photo to stay crisp and fully saturated */
-        display: block;
-    }
-
-}
-
-/* ============================================================
-   HERO (Horizontal/Diagonal Refactor)
-   ============================================================ */
-.hero {
-    position: relative;
-    background: var(--bg-main);
-    min-height: 780px; /* Increased height to give the horizontal layout breathing room */
-    overflow: hidden;
-    display: flex;
-    align-items: flex-end; /* Keeps content anchored toward the bottom layout */
-}
-
-/* 1. Photo extends full width across the top background layer */
-.hero-media {
-    position: absolute;
-    width: 100%;
-    height: 75%; /* Fills the upper portion of the screen behind the header */
-    z-index: 1;
-}
-.hero-media .photo-placeholder {
-    height: 100%;
-    width: 100%;
-}
-
-/* 2. SVG sits over the photo and covers the bottom of the screen */
-.hero-wave-divider {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; /* Spans full height to perfectly map our 1440x720 curve points */
-    z-index: 2;
-    pointer-events: none;
-}
-
-/* 3. Text content is pushed down to rest strictly within the bottom-left beige zone */
-.hero-content {
-    position: relative;
-    z-index: 3; /* Sits cleanly on top of the SVG background layers */
-    max-width: var(--maxw);
-    margin: 0 auto;
-    width: 100%;
-    /* Large top padding ensures text clears the high part of the wave on the left */
-    padding: 26rem 1.5rem 5rem;
-    box-sizing: border-box;
-    text-align: left;
-}
-
-.hero-content h1 {
-    font-size: 3.2rem;
-    line-height: 1.15;
-    margin-bottom: 1.5rem;
-    color: var(--text-dark);
-
-    /* CRUCIAL FIXES FOR A SINGLE LINE: */
-    white-space: nowrap; /* Forces the text to absolutely stay on 1 line */
-    max-width: none;     /* Clears out any restrictions on length */
-}
-
-.hero-content p {
-    max-width: 42ch;
-    margin-bottom: 1.2rem;
-    line-height: 1.6;
-}
-
-/* Ensure buttons have the slight rounded look from your mockup */
-.btn {
-    display: inline-block;
-    text-decoration: none;
-    border-radius: 6px; /* Smooth rounded corners matching image 2 */
-    font-weight: 700;
-    transition: transform 0.2s ease;
-}
-.btn:active {
-    transform: scale(0.98);
-}
-/* ============================================================
-   SHARED — photo placeholders & blobs
-   ============================================================ */
-.hero-img {
-    width: 110%; height: 110%;
-    min-height: 260px;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700;
-    text-align: center;
-}
-
-.blob {
-    border-radius: 58% 42% 47% 53% / 55% 47% 53% 45%;
-    overflow: hidden;
-}
-.blob-outline {
-    box-shadow: 0 0 0 8px var(--gold-accent);
-}
-
-/* full-width wave dividers */
-.wave {
-    position: absolute;
-    left: 0; width: 100%;
-    display: block;
-    pointer-events: none;
-}
-.wave-top-green { top: -1px; height: 90px; }
-.wave-bottom-green { bottom: -1px; height: 100px; }
 
 /* ============================================================
    HERO
@@ -444,33 +135,57 @@ p { margin: 0 0 1rem; }
 .hero {
     position: relative;
     background: var(--bg-main);
-    min-height: 640px;
+    min-height: 780px;
     overflow: hidden;
+    display: flex;
+    align-items: flex-end;
 }
 .hero-media {
     position: absolute;
-    top: 0; right: 0;
+    width: 100%;
+    height: 75%;
+    z-index: 1;
 }
-.hero-img { height: 140%; }
-.hero-curve {
+.hero-wave-divider {
     position: absolute;
-    top: 0; right: 0;
-    width: 40%; height: 100%;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 2;
+    pointer-events: none;
 }
 .hero-content {
     position: relative;
     z-index: 3;
+    max-width: var(--maxw);
     margin: 0 auto;
-    padding: 5rem 2rem 0rem;
+    width: 100%;
+    padding: 26rem 1.5rem 5rem;
+    box-sizing: border-box;
+    text-align: left;
 }
 .hero-content h1 {
-    font-size: 3rem;
-    margin: 0 0 1.4rem;
-    max-width: 9ch;
+    font-size: 3.2rem;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    white-space: nowrap;
+    max-width: none;
 }
-.hero-content p { max-width: 40ch; }
-.hero-content .btn { margin-top: 1rem; }
+.hero-content p {
+    max-width: 42ch;
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+}
+.hero-img {
+    width: 110%; height: 110%;
+    min-height: 260px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    text-align: center;
+    object-fit: cover;
+}
 
 /* ============================================================
    FEATURE CARDS
@@ -498,116 +213,53 @@ p { margin: 0 0 1rem; }
 .feature-icon svg { height: 64px; width: 64px; }
 .feature-card h2 { font-size: 1.45rem; margin: 0.2rem 0 0.9rem; color: var(--card-text); }
 .feature-card p { font-size: 0.94rem; font-weight: 600; margin: 0; }
+
 /* ============================================================
    MØD PSYKOLOGEN (About Section)
    ============================================================ */
 .about {
     position: relative;
-    /* Soft yellow/beige matching your image design */
     background: #FDF4CD;
-    /* High top and bottom padding so text clears the thick waves */
     z-index: 1;
     margin-bottom: 0;
+    padding: 50px 0;
 }
-
-/* 1. Absolute Positioning for the SVG Ribbons */
-.about-wave-top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 180px;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.about-wave-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 180px;
-    z-index: 2;
-    pointer-events: none;
-    padding-top: 3%;
-}
-
-/* 2. Layout Grid for Text and Image */
 .about-inner {
     position: relative;
-    z-index: 3; /* Keeps content safely above the wave layers */
+    z-index: 3;
     max-width: var(--maxw);
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
+    padding: 0 1.5rem;
 }
-
-.about-text h1 {
+.about-title {
     font-size: 2.8rem;
     margin: 0 0 1.5rem;
-    padding-left: 5%;
 }
-
 .about-text p {
     max-width: 48ch;
     line-height: 1.6;
     margin-bottom: 1.2rem;
-    padding-left: 5%;
 }
-
 .about-text .btn {
     margin-top: 1rem;
-    padding-left: 5%;
 }
-
-/* 3. The Organic Image Mask ("Form") */
 .about-photo {
     display: flex;
     justify-content: center;
 }
-
 .about-photo .blob-img {
     width: 100%;
     max-width: 480px;
     aspect-ratio: 4 / 3;
     object-fit: cover;
-    /* This complex border-radius creates the asymmetric blob shape */
     border-radius: 65% 35% 30% 70% / 50% 40% 60% 50%;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
 }
 
-/* ============================================================
-   MOBILE RESPONSIVE ADJUSTMENTS
-   ============================================================ */
-@media (max-width: 768px) {
-    .about {
-        padding-top: 0;
-        padding-bottom: 0;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-    }
-
-    /* ensure SVG waves sit flush */
-    .about-wave-top,
-    .about-wave-bottom,
-    .about > svg {
-        display: block;
-        width: 100%;
-        left: 0;
-    }
-
-    .about-wave-top { top: 0; }
-    .about-wave-bottom { bottom: 0; }
-
-    /* fallback selectors if the SVGs don't have the classes in HTML */
-    .about > svg:first-of-type { position: absolute; top: 0; left: 0; }
-    .about > svg:last-of-type  { position: absolute; bottom: 0; left: 0; }
-
-    /* keep inner content spaced from the wave edges */
-    .about-inner { padding-top: 1.5rem; padding-bottom: 1.5rem; }
-}
 /* ============================================================
    BEHANDLINGSFORLØB
    ============================================================ */
@@ -617,7 +269,7 @@ p { margin: 0 0 1rem; }
     padding: 8rem 1.5rem;
 }
 .process-inner { max-width: var(--maxw); margin: 0 auto; text-align: center; }
-.section-title { font-size: 2.6rem; margin: 0 0 3rem; }
+.section-title-processen { font-size: 2.6rem; margin: 0 0 3rem; font-family: var(--font-h1); }
 .steps {
     display: flex;
     align-items: stretch;
@@ -651,78 +303,80 @@ p { margin: 0 0 1rem; }
 .step-arrow svg { width: 52px; }
 .process-inner .btn { margin-top: 2.5rem; }
 
-
-/* TESTIMONIALS
+/* ============================================================
+   ✨ TESTIMONIALS (Forbedret & Responsivt Design)
    ============================================================ */
 .testimonials {
     position: relative;
     background: var(--bg-section);
-    /* Reduced horizontal padding from 1.5rem to 1rem to utilize screen edges */
-    padding: 5rem 1rem 5rem;
+    padding: 6rem 1.5rem;
 }
-
 .testimonials-inner {
-    /* Force a wider layout if var(--maxw) is too restrictive */
     max-width: 1300px;
     width: 100%;
     margin: 0 auto;
     text-align: center;
 }
-
 .testimonials .section-title {
-    margin-bottom: 2.5rem;
+    font-family: var(--font-h1);
+    font-size: 2.8rem;
+    margin-bottom: 3.5rem;
+    color: var(--text-dark);
 }
-
 .testimonial-row {
     display: flex;
     justify-content: center;
-    /* Reduced gap slightly from 2.5rem to 1.5rem to save horizontal space */
-    gap: 1.5rem;
+    gap: 2.5rem;
     flex-wrap: wrap;
+    align-items: stretch; /* Tvinger kortene til at have ens højde på desktop */
 }
-
 .anmeldese-kort {
-    position: relative; /* CRUCIAL: Contains the absolute SVG background */
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Vertically centers the text content */
-    align-items: center;     /* Horizontally centers the text content */
+    justify-content: flex-start; /* Justeret til toppen for flottere tekstlinjeforløb */
+    align-items: center;
     text-align: center;
-    color: #fff;
+    color: var(--card-text); /* Mørk kontrastfarve i stedet for ulæselig hvid */
     z-index: 1;
-
-    /* Matches the exact aspect ratio of your SVG viewBox (384x284) */
     width: 100%;
-    max-width: 384px;
-    aspect-ratio: 384 / 284;
-
-    /* Padding keeps text safely away from the wavy blob edges */
-    padding: 2.5rem;
+    max-width: 370px;
+    aspect-ratio: 384 / 320; /* Øget højdeforhold for at give plads til længere tekst */
+    padding: 3rem 2.2rem 2.5rem;
     box-sizing: border-box;
 }
-
-/* Forces the SVG to behave exactly like a background graphic */
 .anmeldese-kort .testimonial.illustration {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;          /* Pushes the yellow shape behind your text */
-    pointer-events: none; /* Ensures users can still easily highlight the text */
+    z-index: -1;
+    pointer-events: none;
 }
-
-/* Optional tweaks to make your text layout look balanced inside the blob */
 .anmeldese-kort h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
+    margin: 0 0 0.6rem 0;
+    font-size: 1.3rem;
+    font-family: var(--font-h2);
+    color: var(--card-text);
+}
+.anmeldese-kort p {
+    font-size: 0.94rem;
+    line-height: 1.5;
+    margin: 0 0 1rem 0;
+    font-family: var(--font-body);
+    font-weight: 500;
+    flex-grow: 1; /* Skubber automatisk signaturen ned i bunden */
+}
+.testimonial-signature {
+    display: block;
+    font-size: 0.85rem;
+    font-style: italic;
+    opacity: 0.85;
+    font-weight: 700;
+    margin-top: auto;
 }
 
-.anmeldese-kort p {
-    font-size: 0.95rem;
-    line-height: 1.4;
-    margin-bottom: 1rem;
-}
 /* ============================================================
    CTA / SNAK
    ============================================================ */
@@ -743,37 +397,85 @@ p { margin: 0 0 1rem; }
 .cta-text p { max-width: 44ch; }
 .cta-text .btn { margin-top: 1rem; }
 .cta-media { order: 2; position: relative; }
-.cta-title { font-size: 2.2rem; margin: 0 0 1.5rem; text-align: right; }
-.cta-media .photo-placeholder { width: 100%; height: 320px; min-height: 0; }
+.cta-title { font-size: 2.2rem; margin: 0 0 1.5rem; text-align: right; font-family: var(--font-h1); }
+.cta-img { width: 100%; height: auto; border-radius: 58% 42% 47% 53% / 55% 47% 53% 45%; object-fit: cover; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
 
 /* ============================================================
-   FOOTER
+   SYSTEM-DÆKKENDE SVGER / WAVES
    ============================================================ */
-.site-footer {
-    position: relative;
-    background: var(--green);
-    color: var(--on-green);
-    padding: 8rem 1.5rem 1rem;
-}
-.footer-wave { position: absolute; top: -1px; left: 0; width: 100%; height: 120px; }
-.footer-inner {
-    max-width: var(--maxw);
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-.footer-line { margin: 0 0 1.2rem; font-size: 1.25rem; }
-.footer-col-right { display: flex; flex-direction: column; gap: 1.2rem; justify-content: flex-end; padding-bottom: 2.4rem; }
-.footer-link { color: var(--on-green); text-decoration: none; font-size: 1.35rem; }
-.footer-link:hover { text-decoration: underline; }
-.footer-copy { text-align: center; margin: 1.5rem 0 0; font-size: 1.15rem; }
+.fluid-flow-wave, .fluid-flow-wave-1, .fluid-flow-wave-2 { display: block; width: 100%; height: 10vw; min-height: 60px; max-height: 140px; margin: 0; padding: 0; vertical-align: middle; position: relative; z-index: 5; }
+.fluid-flow-wave-1 { background-color: #FDF4CD; }
+.fluid-flow-wave-2 { background-color: #FFEEAC; }
+.wave-svg { width: 100%; height: auto; display: block; }
+.wave-container { width: 100%; line-height: 0; margin: 0; }
+.margin-minus { margin-top: -5px; margin-bottom: -5px; }
 
-/* light, free responsive safety net (full mobile pass comes later) */
-@media (max-width: 860px) {
-    .features-inner { grid-template-columns: 1fr; }
-    .about-inner, .cta-inner { grid-template-columns: 1fr; }
-    .hero-media, .hero-curve { width: 100%; opacity: 0.25; }
-    .cta-title { text-align: left; }
+/* ============================================================
+   📲 PHONE & MOBILE RESPONSIVE OVERRIDES
+   ============================================================ */
+@media (max-width: 768px) {
+    .site-header { left: 4% !important; right: 4% !important; top: 15px; border-radius: 20px; }
+    .header-inner { padding: 0.5rem 1rem; justify-content: space-between; }
+    .wordmark { font-size: 0.9rem; white-space: nowrap; }
+    .btn-book-tid { display: none !important; }
+
+    .burger-menu {
+        display: flex; flex-direction: column; justify-content: space-between; width: 28px; height: 20px; background: none; border: none; padding: 0; cursor: pointer; z-index: 30;
+    }
+    .burger-menu span { width: 100%; height: 2.5px; background-color: #ffffff; border-radius: 4px; transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease; }
+    .burger-menu.open span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+    .burger-menu.open span:nth-child(2) { opacity: 0; transform: translateX(10px); }
+    .burger-menu.open span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+
+    .main-nav {
+        position: absolute; top: 120%; left: 0; right: 0; background: var(--bg-main); flex-direction: column; gap: 0; padding: 0; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); margin-left: 0; border-radius: 20px; overflow: hidden; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.25s ease;
+    }
+    .main-nav.active { opacity: 1; visibility: visible; transform: translateY(0); }
+    .main-nav a { width: 100%; text-align: center; padding: 1rem 0; border-radius: 0; color: var(--text-dark); }
+    .main-nav .btn-nav-mobile { display: inline-block; width: auto; min-width: 160px; margin: 1rem auto; padding: 0.6rem 1.8rem; background: var(--gold-btn); color: #fff !important; border-radius: 30px; text-align: center; }
+
+    /* Hero Mobile */
+    .hero-media { position: absolute; width: 100%; height: 75%; z-index: 1; }
+    .hero-wave-divider { width: 185%; left: -45%; bottom: 0; height: 100%; }
+    .hero-content { padding: 10rem 1.5rem 3rem; text-align: left; z-index: 2; }
+    .hero-content h1 { white-space: normal !important; font-size: 2.2rem; line-height: 1.2; margin-bottom: 1rem; }
+    .hero-content p { font-size: 0.95rem; line-height: 1.5; max-width: 100%; }
+    .hero-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .features-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .about-title { font-size: 2.2rem; }
+
+    .steps { flex-direction: column; gap: 1.5rem; }
+    .step-card { max-width: 100%; }
+    .step-arrow { display: none; }
+
+    /* ─── MOBILOPTIMERING AF ANMELDELSER ─── */
+    .testimonials {
+        padding: 4rem 1rem;
+    }
+    .testimonials .section-title {
+        font-size: 2.1rem;
+        margin-bottom: 2rem;
+    }
+    .testimonial-row {
+        gap: 1.5rem;
+    }
+    .anmeldese-kort {
+        max-width: 340px;
+        aspect-ratio: auto; /* Deaktiverer fastlåst højde så lange tekster ikke flyder over */
+        padding: 4rem 1.8rem 3.5rem; /* Ekstra top/bund padding til de asymmetriske buer */
+    }
+    .anmeldese-kort .testimonial.illustration {
+        object-fit: fill; /* Gør at baggrunds-bloben strækker sig organisk med tekstmængden */
+    }
+    .anmeldese-kort p {
+        font-size: 0.92rem;
+        margin-bottom: 1.2rem;
+    }
+
+    /* CTA Mobile */
+    .cta-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .cta-title { text-align: center; font-size: 2rem; }
+    .cta-text { text-align: left; }
 }
